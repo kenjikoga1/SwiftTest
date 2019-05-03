@@ -97,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="852.17391304347836" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Memo Controller-->
         <scene sceneID="WTj-GN-aVb">
             <objects>
-                <viewController id="i5Z-xI-eJJ" sceneMemberID="viewController">
+                <viewController id="i5Z-xI-eJJ" customClass="EditMemoController" customModule="magicalMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9sn-y4-HDS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +132,6 @@
                                 <rect key="frame" x="20" y="174" width="374" height="584"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -142,6 +141,7 @@
                                 <state key="normal" title="▶ ABST"/>
                                 <connections>
                                     <action selector="newAbst:" destination="bRE-hB-3iT" eventType="touchUpInside" id="e9I-ZR-q5X"/>
+                                    <segue destination="XVP-f9-tFQ" kind="show" identifier="newAbst" id="VLz-td-k8R"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kf6-6W-cCa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1763.7681159420292" y="679.6875"/>
+            <point key="canvasLocation" x="1797" y="682"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sQA-GE-5kt">
@@ -181,6 +181,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMj-8A-i6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-57.971014492753625" y="137.94642857142856"/>
+        </scene>
+        <!--New ABSTRACT-->
+        <scene sceneID="kcM-DZ-ujH">
+            <objects>
+                <viewController id="XVP-f9-tFQ" customClass="NewAbstController" customModule="magicalMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dty-yR-elj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pOO-yS-itx">
+                                <rect key="frame" x="20" y="174" width="374" height="584"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl3-o9-wmw">
+                                <rect key="frame" x="172" y="766" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="▶ FIGURE"/>
+                                <connections>
+                                    <action selector="newFigure:" destination="XVP-f9-tFQ" eventType="touchUpInside" id="dQi-4f-g8u"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIU-Hl-t3r">
+                                <rect key="frame" x="20" y="118" width="374" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tek-al-3Cc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New ABSTRACT" id="D7K-Ks-gYU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7DY-CO-ggG">
+                            <connections>
+                                <action selector="savrBtn:" destination="XVP-f9-tFQ" id="ASe-d3-BVI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="abstTextView" destination="pOO-yS-itx" id="jKQ-Pa-ma6"/>
+                        <outlet property="titleLabel" destination="hIU-Hl-t3r" id="rYF-Rm-3jD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eEa-qP-Cqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2547.826086956522" y="681.69642857142856"/>
         </scene>
     </scenes>
 </document>
