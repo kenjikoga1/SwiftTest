@@ -135,10 +135,14 @@
                         <viewLayoutGuide key="safeArea" id="Agj-6Q-3Gf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Memo" id="PTW-iU-cEO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Nr1-3c-1oR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Nr1-3c-1oR">
+                            <connections>
+                                <action selector="saveBtn:" destination="i5Z-xI-eJJ" id="r57-oC-rA1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="editTextView" destination="iz5-hp-pzz" id="NqL-Kv-53P"/>
+                        <outlet property="editTextView" destination="iz5-hp-pzz" id="2QQ-fm-y05"/>
                         <outlet property="titleTextField" destination="hwV-F6-TSl" id="nuS-k3-iBk"/>
                     </connections>
                 </viewController>
@@ -337,7 +341,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="▶ FIGURE"/>
                                 <connections>
-                                    <action selector="abstBtn:" destination="f5q-MZ-vbk" eventType="touchUpInside" id="xBk-Xi-WSp"/>
+                                    <action selector="figureBtn:" destination="f5q-MZ-vbk" eventType="touchUpInside" id="e2t-cC-gLz"/>
                                     <action selector="newAbst:" destination="bRE-hB-3iT" eventType="touchUpInside" id="bLH-WU-LGF"/>
                                     <segue destination="0xK-pQ-3mr" kind="show" identifier="editFigure" id="Tue-Mf-MOA"/>
                                 </connections>
@@ -347,11 +351,15 @@
                         <viewLayoutGuide key="safeArea" id="mR1-O1-ieP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Abstract" id="Ngo-h3-6mx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JFz-cY-1vB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JFz-cY-1vB">
+                            <connections>
+                                <action selector="saveBtn:" destination="f5q-MZ-vbk" id="06I-y9-pbp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="editTextView" destination="j3u-lh-gxB" id="bLf-Q5-6QS"/>
-                        <outlet property="titleTextField" destination="dA0-Or-gcA" id="JAG-bE-iur"/>
+                        <outlet property="editTextView" destination="j3u-lh-gxB" id="db5-qS-Z5R"/>
+                        <outlet property="titleTextField" destination="dA0-Or-gcA" id="NQ7-3G-Y45"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muo-2R-vHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,11 +394,15 @@
                         <viewLayoutGuide key="safeArea" id="Htg-OU-miG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Figure" id="nbu-xk-VKl">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zvt-B0-UBk"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zvt-B0-UBk">
+                            <connections>
+                                <action selector="saveBtn:" destination="0xK-pQ-3mr" id="PdU-bn-7p2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="editTextView" destination="4UX-nx-5J5" id="5Zv-1q-CsY"/>
-                        <outlet property="titleTextField" destination="dfX-zZ-58V" id="Oal-oM-YWp"/>
+                        <outlet property="editTextView" destination="4UX-nx-5J5" id="9Q6-tw-Dfg"/>
+                        <outlet property="titleTextField" destination="dfX-zZ-58V" id="lkx-15-yw1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBA-4s-u4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
