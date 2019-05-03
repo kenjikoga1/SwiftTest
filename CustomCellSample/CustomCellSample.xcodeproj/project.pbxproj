@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4B386DEED2D29C2AFA3C17 /* Pods_CustomCellSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA882F890F2FAC3F4A2710F /* Pods_CustomCellSample.framework */; };
 		8CC1DA7E227A9C6900B73106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1DA7D227A9C6900B73106 /* AppDelegate.swift */; };
 		8CC1DA80227A9C6900B73106 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1DA7F227A9C6900B73106 /* ViewController.swift */; };
 		8CC1DA83227A9C6900B73106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CC1DA81227A9C6900B73106 /* Main.storyboard */; };
 		8CC1DA85227A9C6A00B73106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CC1DA84227A9C6A00B73106 /* Assets.xcassets */; };
 		8CC1DA88227A9C6A00B73106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CC1DA86227A9C6A00B73106 /* LaunchScreen.storyboard */; };
+		8CC1DA91227A9E9900B73106 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1DA8F227A9E9900B73106 /* CustomTableViewCell.swift */; };
+		8CC1DA92227A9E9900B73106 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC1DA90227A9E9900B73106 /* CustomTableViewCell.xib */; };
+		8CC1DA94227AA71800B73106 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1DA93227AA71800B73106 /* Model.swift */; };
+		8CC1DA96227AAE4100B73106 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1DA95227AAE4100B73106 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81660465BE066292806244A1 /* Pods-CustomCellSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomCellSample.release.xcconfig"; path = "Target Support Files/Pods-CustomCellSample/Pods-CustomCellSample.release.xcconfig"; sourceTree = "<group>"; };
 		8CC1DA7A227A9C6900B73106 /* CustomCellSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomCellSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC1DA7D227A9C6900B73106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CC1DA7F227A9C6900B73106 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,12 @@
 		8CC1DA84227A9C6A00B73106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CC1DA87227A9C6A00B73106 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CC1DA89227A9C6A00B73106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CC1DA8F227A9E9900B73106 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		8CC1DA90227A9E9900B73106 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		8CC1DA93227AA71800B73106 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8CC1DA95227AAE4100B73106 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9FA882F890F2FAC3F4A2710F /* Pods_CustomCellSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomCellSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0511D196D93EE8B95E9641D /* Pods-CustomCellSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomCellSample.debug.xcconfig"; path = "Target Support Files/Pods-CustomCellSample/Pods-CustomCellSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4B386DEED2D29C2AFA3C17 /* Pods_CustomCellSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +53,8 @@
 			children = (
 				8CC1DA7C227A9C6900B73106 /* CustomCellSample */,
 				8CC1DA7B227A9C6900B73106 /* Products */,
+				FE19E3C10F25D6F6B670E8E4 /* Pods */,
+				FBE492638E1C4EED911EFACF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +70,34 @@
 			isa = PBXGroup;
 			children = (
 				8CC1DA7D227A9C6900B73106 /* AppDelegate.swift */,
+				8CC1DA95227AAE4100B73106 /* DetailViewController.swift */,
 				8CC1DA7F227A9C6900B73106 /* ViewController.swift */,
+				8CC1DA8F227A9E9900B73106 /* CustomTableViewCell.swift */,
+				8CC1DA90227A9E9900B73106 /* CustomTableViewCell.xib */,
+				8CC1DA93227AA71800B73106 /* Model.swift */,
 				8CC1DA81227A9C6900B73106 /* Main.storyboard */,
 				8CC1DA84227A9C6A00B73106 /* Assets.xcassets */,
 				8CC1DA86227A9C6A00B73106 /* LaunchScreen.storyboard */,
 				8CC1DA89227A9C6A00B73106 /* Info.plist */,
 			);
 			path = CustomCellSample;
+			sourceTree = "<group>";
+		};
+		FBE492638E1C4EED911EFACF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FA882F890F2FAC3F4A2710F /* Pods_CustomCellSample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE19E3C10F25D6F6B670E8E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0511D196D93EE8B95E9641D /* Pods-CustomCellSample.debug.xcconfig */,
+				81660465BE066292806244A1 /* Pods-CustomCellSample.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CC1DA8C227A9C6A00B73106 /* Build configuration list for PBXNativeTarget "CustomCellSample" */;
 			buildPhases = (
+				CCB3BC552AE5BC3911436098 /* [CP] Check Pods Manifest.lock */,
 				8CC1DA76227A9C6900B73106 /* Sources */,
 				8CC1DA77227A9C6900B73106 /* Frameworks */,
 				8CC1DA78227A9C6900B73106 /* Resources */,
+				523E2D7DA381C37855CC74FE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,19 +162,72 @@
 			files = (
 				8CC1DA88227A9C6A00B73106 /* LaunchScreen.storyboard in Resources */,
 				8CC1DA85227A9C6A00B73106 /* Assets.xcassets in Resources */,
+				8CC1DA92227A9E9900B73106 /* CustomTableViewCell.xib in Resources */,
 				8CC1DA83227A9C6900B73106 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		523E2D7DA381C37855CC74FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CustomCellSample/Pods-CustomCellSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CustomCellSample/Pods-CustomCellSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCB3BC552AE5BC3911436098 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CustomCellSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8CC1DA76227A9C6900B73106 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CC1DA91227A9E9900B73106 /* CustomTableViewCell.swift in Sources */,
 				8CC1DA80227A9C6900B73106 /* ViewController.swift in Sources */,
+				8CC1DA96227AAE4100B73106 /* DetailViewController.swift in Sources */,
 				8CC1DA7E227A9C6900B73106 /* AppDelegate.swift in Sources */,
+				8CC1DA94227AA71800B73106 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +371,7 @@
 		};
 		8CC1DA8D227A9C6A00B73106 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0511D196D93EE8B95E9641D /* Pods-CustomCellSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +390,7 @@
 		};
 		8CC1DA8E227A9C6A00B73106 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81660465BE066292806244A1 /* Pods-CustomCellSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
