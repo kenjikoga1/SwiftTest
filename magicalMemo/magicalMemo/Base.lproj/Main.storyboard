@@ -90,23 +90,57 @@
                         <outlet property="figureView" destination="JP5-in-TLF" id="D6J-mu-21d"/>
                         <outlet property="tableView" destination="jDT-bF-9vh" id="p8q-f5-xaY"/>
                         <outlet property="titleView" destination="CJe-Ei-v8e" id="SW2-7n-taQ"/>
-                        <segue destination="i5Z-xI-eJJ" kind="show" identifier="editMemo" id="dMR-UK-r01"/>
+                        <segue destination="i5Z-xI-eJJ" kind="show" identifier="editMemo" id="Z3q-ZR-FRu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852.17391304347836" y="137.94642857142856"/>
         </scene>
-        <!--Edit Memo Controller-->
+        <!--Edit Memo-->
         <scene sceneID="WTj-GN-aVb">
             <objects>
                 <viewController id="i5Z-xI-eJJ" customClass="EditMemoController" customModule="magicalMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9sn-y4-HDS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hwV-F6-TSl">
+                                <rect key="frame" x="20" y="111" width="374" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iz5-hp-pzz">
+                                <rect key="frame" x="20" y="174" width="374" height="584"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfB-y2-ulO">
+                                <rect key="frame" x="179" y="766" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="▶ ABST"/>
+                                <connections>
+                                    <action selector="abstBtn:" destination="i5Z-xI-eJJ" eventType="touchUpInside" id="iHI-2j-EJ8"/>
+                                    <action selector="newAbst:" destination="bRE-hB-3iT" eventType="touchUpInside" id="rwt-ag-A38"/>
+                                    <segue destination="f5q-MZ-vbk" kind="show" identifier="editAbst" id="zFU-pp-FZd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Agj-6Q-3Gf"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Edit Memo" id="PTW-iU-cEO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Nr1-3c-1oR"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editTextView" destination="iz5-hp-pzz" id="NqL-Kv-53P"/>
+                        <outlet property="titleTextField" destination="hwV-F6-TSl" id="nuS-k3-iBk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Z8-dm-8at" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,7 +165,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a5m-0P-gvZ">
                                 <rect key="frame" x="20" y="174" width="374" height="584"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -182,7 +216,7 @@
             </objects>
             <point key="canvasLocation" x="-57.971014492753625" y="137.94642857142856"/>
         </scene>
-        <!--New ABSTRACT-->
+        <!--New Abstract-->
         <scene sceneID="kcM-DZ-ujH">
             <objects>
                 <viewController id="XVP-f9-tFQ" customClass="NewAbstController" customModule="magicalMemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -193,7 +227,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pOO-yS-itx">
                                 <rect key="frame" x="20" y="174" width="374" height="584"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -203,6 +237,7 @@
                                 <state key="normal" title="▶ FIGURE"/>
                                 <connections>
                                     <action selector="newFigure:" destination="XVP-f9-tFQ" eventType="touchUpInside" id="dQi-4f-g8u"/>
+                                    <segue destination="Ceq-Sw-6il" kind="show" identifier="newFigure" id="p5G-Cp-Upe"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIU-Hl-t3r">
@@ -216,7 +251,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tek-al-3Cc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New ABSTRACT" id="D7K-Ks-gYU">
+                    <navigationItem key="navigationItem" title="New Abstract" id="D7K-Ks-gYU">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="7DY-CO-ggG">
                             <connections>
                                 <action selector="savrBtn:" destination="XVP-f9-tFQ" id="ASe-d3-BVI"/>
@@ -231,6 +266,136 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEa-qP-Cqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2547.826086956522" y="681.69642857142856"/>
+        </scene>
+        <!--New Figure-->
+        <scene sceneID="jaN-UA-92z">
+            <objects>
+                <viewController id="Ceq-Sw-6il" customClass="NewFigureController" customModule="magicalMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SvG-X5-SJ7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Gb-5L-Ajs">
+                                <rect key="frame" x="20" y="174" width="374" height="584"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4a-4U-ZDF">
+                                <rect key="frame" x="20" y="118" width="374" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="U8N-5V-aaC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Figure" id="dFk-OF-Zhb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Jmj-43-SoD">
+                            <connections>
+                                <action selector="savrBtn:" destination="Ceq-Sw-6il" id="hxh-uX-sr5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="figureTextView" destination="7Gb-5L-Ajs" id="6uq-W4-1Hp"/>
+                        <outlet property="titleLabel" destination="c4a-4U-ZDF" id="pCE-ua-Xax"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARq-z3-pua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3374" y="682"/>
+        </scene>
+        <!--Edit Abstract-->
+        <scene sceneID="N0O-OA-m4y">
+            <objects>
+                <viewController id="f5q-MZ-vbk" customClass="EditAbstController" customModule="magicalMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hMb-qP-IPn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dA0-Or-gcA">
+                                <rect key="frame" x="20" y="111" width="374" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j3u-lh-gxB">
+                                <rect key="frame" x="20" y="174" width="374" height="584"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STa-e1-BHX">
+                                <rect key="frame" x="172" y="766" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="▶ FIGURE"/>
+                                <connections>
+                                    <action selector="abstBtn:" destination="f5q-MZ-vbk" eventType="touchUpInside" id="xBk-Xi-WSp"/>
+                                    <action selector="newAbst:" destination="bRE-hB-3iT" eventType="touchUpInside" id="bLH-WU-LGF"/>
+                                    <segue destination="0xK-pQ-3mr" kind="show" identifier="editFigure" id="Tue-Mf-MOA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mR1-O1-ieP"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Abstract" id="Ngo-h3-6mx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JFz-cY-1vB"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editTextView" destination="j3u-lh-gxB" id="bLf-Q5-6QS"/>
+                        <outlet property="titleTextField" destination="dA0-Or-gcA" id="JAG-bE-iur"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="muo-2R-vHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2548" y="-110"/>
+        </scene>
+        <!--Edit Figure-->
+        <scene sceneID="frS-ui-uyG">
+            <objects>
+                <viewController id="0xK-pQ-3mr" customClass="EditFigureController" customModule="magicalMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ghd-uG-cmR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-zZ-58V">
+                                <rect key="frame" x="20" y="111" width="374" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4UX-nx-5J5">
+                                <rect key="frame" x="20" y="174" width="374" height="584"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Htg-OU-miG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Figure" id="nbu-xk-VKl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zvt-B0-UBk"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editTextView" destination="4UX-nx-5J5" id="5Zv-1q-CsY"/>
+                        <outlet property="titleTextField" destination="dfX-zZ-58V" id="Oal-oM-YWp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DBA-4s-u4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3374" y="-110"/>
         </scene>
     </scenes>
 </document>

@@ -31,26 +31,29 @@ class NewAbstController: UIViewController {
     }
     
     @IBAction func savrBtn(_ sender: Any) {
-        
         //作ったカラムの空白に新たにabstDetailを加える
-        let realm = try! Realm()        
+        let realm = try! Realm()
         
+//        try! realm.write {
+//            let memo = Memos()
+//            let id = memos[cellNumber].value(forKey: "id") as! Int
+//            let abstDetail = memos[cellNumber].value(forKey: "abstDetail") as! String
+//
+//            memo.id = id
+//            memo.abstDetail = abstDetail
+//            realm.add(memo, update:true)
+//
         //TitleをRealmに保存
         let memo = Memos()
         memos = realm.objects(Memos.self)
-        var abst = memos[cellNumber].value(forKey: "abstDetail")
+        let abst = memos[cellNumber] as Memos
         //memoTextをRealmに保存
         try! realm.write {
-            
-            abst = abstTextView.text
-            print(memos)
-            print(memo)
-//            memo.abstDetail = abst as! String
-//            realm.add(memo)
-            print("成功")
+            abst.abstDetail = abstTextView.text
+            realm.add(memo)
         }
         //topに戻る
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
     
     @IBAction func newFigure(_ sender: Any) {
@@ -59,25 +62,22 @@ class NewAbstController: UIViewController {
         //abstControllerに遷移
         let realm = try! Realm()
         let memo = Memos()
-        //TitleをRealmに保存
-        memo.abstDetail = abstTextView.text ?? ""
-        
+        memos = realm.objects(Memos.self)
+        let abst = memos[cellNumber] as Memos
         //memoTextをRealmに保存
         try! realm.write {
+            abst.abstDetail = abstTextView.text
             realm.add(memo)
-            print("成功")
             
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let nf = segue.destination as! NewFigureController
+        nf.cellNumber = self.cellNumber
     }
-    */
-
 }

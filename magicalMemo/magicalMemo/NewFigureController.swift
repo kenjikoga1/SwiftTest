@@ -1,5 +1,5 @@
 //
-//  EditMemoController.swift
+//  NewFigureController.swift
 //  magicalMemo
 //
 //  Created by 古賀賢司 on 2019/05/03.
@@ -9,45 +9,39 @@
 import UIKit
 import RealmSwift
 
-class EditMemoController: UIViewController {
+class NewFigureController: UIViewController {
 
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var editTextView: UITextView!
+    @IBOutlet weak var figureTextView: UITextView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var memos: Results<Memos>!
     var cellNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let realm = try! Realm()
-        let memo = Memos()
         memos = realm.objects(Memos.self)
-        let topMemo = memos[cellNumber] as Memos
-        //memoTextをRealmに保存
-        try! realm.write {
-            titleTextField.text = topMemo.memoTitle
-            editTextView.text = topMemo.memoDetail
-        }
+        let abstTitle = memos[cellNumber].value(forKey: "memoTitle")
+        titleLabel.text = abstTitle as? String
     }
     
-    @IBAction func abstBtn(_ sender: Any) {
+
+    @IBAction func savrBtn(_ sender: Any) {
+        //作ったカラムの空白に新たにabstDetailを加える
         let realm = try! Realm()
-        
-        let memo = Memos()
         //TitleをRealmに保存
-        
-        //memoTextをRealmに保存
+        let memo = Memos()
         memos = realm.objects(Memos.self)
-        let topMemo = memos[cellNumber] as Memos
+        let figure = memos[cellNumber] as Memos
         //memoTextをRealmに保存
         try! realm.write {
-            topMemo.memoTitle = titleTextField.text ?? ""
-            topMemo.memoDetail = editTextView.text
+            figure.figureDetail = figureTextView.text
             realm.add(memo)
         }
+        //topに戻る
+        self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
-    
     /*
     // MARK: - Navigation
 

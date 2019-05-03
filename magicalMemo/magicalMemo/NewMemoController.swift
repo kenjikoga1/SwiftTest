@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 
 class NewMemoController: UIViewController,UITextViewDelegate {
-
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
@@ -18,22 +17,12 @@ class NewMemoController: UIViewController,UITextViewDelegate {
     var memos: Results<Memos>!
     var cellNumber = 0
     
-    var sameColum = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         memoTextView.delegate = self
         
-        
-        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        let realm = try! Realm()
-//        memos = realm.objects(Memos.self)
-//        //戻ってきたときの読込にRealmデータを加える
-    }
-    
+        
     @IBAction func saveBtn(_ sender: Any) {
         
         let realm = try! Realm()
