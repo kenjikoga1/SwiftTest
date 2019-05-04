@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class NewAllController: UIViewController {
+class NewAllController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
@@ -17,13 +17,20 @@ class NewAllController: UIViewController {
     @IBOutlet weak var figureTextView: UITextView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBOutlet weak var memoPlace: UILabel!
+    @IBOutlet weak var abstPlace: UILabel!
+    @IBOutlet weak var figurePlace: UILabel!
+    
     var memos: Results<Memos>!
     var cellNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.saveButton.isEnabled = true
+        self.saveButton.isEnabled = false
 
+        memoTextView.delegate = self
+        abstTextView.delegate = self
+        figureTextView.delegate = self
 //        createDayLabel.isHidden = true
 //        editDayLabel.isHidden = true
 
@@ -36,13 +43,27 @@ class NewAllController: UIViewController {
         //editDayLabelが修正された場合更新して表示
     }
     
-//    func textViewDidChange(_ textView: UITextView) {
-//        if let text = self.memoTextView.text, text.isEmpty{
-//            self.saveButton.isEnabled = true
-//        }else{
-//            self.saveButton.isEnabled = false
-//        }
-//    }
+    func textViewDidChange(_ textView: UITextView) {
+        if memoTextView.text.isEmpty{
+            self.saveButton.isEnabled = false
+            memoPlace.isHidden = false
+        }else{
+            self.saveButton.isEnabled = true
+            memoPlace.isHidden = true
+        }
+        if abstTextView.text.isEmpty{
+            abstPlace.isHidden = false
+        }else{
+            abstPlace.isHidden = true
+            self.saveButton.isEnabled = true
+        }
+        if figureTextView.text.isEmpty{
+            figurePlace.isHidden = false
+        }else{
+            self.saveButton.isEnabled = true
+            figurePlace.isHidden = true
+        }
+    }
     
     @IBAction func saveBtn(_ sender: Any) {
         

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class EditAllController: UIViewController {
+class EditAllController: UIViewController,UITextViewDelegate {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
@@ -17,13 +17,22 @@ class EditAllController: UIViewController {
     @IBOutlet weak var figureTextView: UITextView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBOutlet weak var memoPlace: UILabel!
+    @IBOutlet weak var abstPlace: UILabel!
+    @IBOutlet weak var figurePlace: UILabel!
+    
     
     var memos: Results<Memos>!
     var cellNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.saveButton.isEnabled = true
+        
+        memoTextView.delegate = self
+        abstTextView.delegate = self
+        figureTextView.delegate = self
+        
+//        self.saveButton.isEnabled = false
         
         let realm = try! Realm()
         let memo = Memos()
@@ -36,20 +45,16 @@ class EditAllController: UIViewController {
             abstTextView.text = topMemo.abstDetail
             figureTextView.text = topMemo.figureDetail
         }
+        
+        setPlaceHolder()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //createDayLabelがRealmに入っていた場合表示
         //editDayLabelが修正された場合更新して表示
     }
-    
-    //    func textViewDidChange(_ textView: UITextView) {
-    //        if let text = self.memoTextView.text, text.isEmpty{
-    //            self.saveButton.isEnabled = true
-    //        }else{
-    //            self.saveButton.isEnabled = false
-    //        }
-    //    }
+
     
     @IBAction func saveBtn(_ sender: Any) {
         
@@ -113,4 +118,39 @@ class EditAllController: UIViewController {
         }
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        setPlaceHolder()
+    }
+    
+    func setPlaceHolder(){
+        if memoTextView.text.isEmpty{
+            memoPlace.isHidden = false
+        }else{
+            memoPlace.isHidden = true
+        }
+        if abstTextView.text.isEmpty{
+            abstPlace.isHidden = false
+        }else{
+            abstPlace.isHidden = true
+        }
+        if figureTextView.text.isEmpty{
+            figurePlace.isHidden = false
+        }else{
+            figurePlace.isHidden = true
+        }
+    }
+    
+//    func textViewDidBeginEditing(_ textView: UITextView) -> Bool {
+//        if(memoTextView.text.isEmpty){
+//            memoPlace.isHidden =
+//        }
+//        return true
+//    }
+    
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        if(!memoTextView.text.isEmpty){
+//            memoPlace.isHidden = false
+//        }
+//    }
+
 }

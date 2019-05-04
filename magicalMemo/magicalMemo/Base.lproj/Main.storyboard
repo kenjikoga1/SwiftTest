@@ -640,8 +640,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="abstPlace" destination="u37-74-GNE" id="Cun-qf-iJR"/>
                         <outlet property="abstTextView" destination="TlJ-ff-7Om" id="um9-Ow-mO0"/>
+                        <outlet property="figurePlace" destination="dWV-Uy-J9E" id="PgC-ia-3x6"/>
                         <outlet property="figureTextView" destination="6aj-CF-bsC" id="Wi1-4Z-DE0"/>
+                        <outlet property="memoPlace" destination="bhx-Ea-6Ro" id="96e-mU-JPU"/>
                         <outlet property="memoTextView" destination="dH1-xd-Hce" id="w6j-xd-UkI"/>
                         <outlet property="saveButton" destination="ZjK-aS-bAy" id="YKR-jr-pK8"/>
                         <outlet property="titleTextField" destination="bJE-Rc-hTI" id="Yq2-rn-TGX"/>
@@ -780,8 +783,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="abstPlace" destination="Tvx-Ob-9bQ" id="Iwf-Lm-7Yv"/>
                         <outlet property="abstTextView" destination="bz6-M5-K8S" id="1iX-xi-wuF"/>
+                        <outlet property="figurePlace" destination="Yh6-aJ-s99" id="obw-8F-eV3"/>
                         <outlet property="figureTextView" destination="Wy3-XC-pts" id="D5z-Dz-uS0"/>
+                        <outlet property="memoPlace" destination="pWI-6g-dpK" id="9yV-wB-iDY"/>
                         <outlet property="memoTextView" destination="F14-Fv-dfe" id="6ML-4b-shl"/>
                         <outlet property="saveButton" destination="OuF-cL-ZS8" id="6M7-Ou-gFU"/>
                         <outlet property="titleTextField" destination="pSZ-e4-5tr" id="t6z-7R-xfd"/>
