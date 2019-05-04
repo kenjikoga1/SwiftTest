@@ -12,6 +12,7 @@ import RealmSwift
 class Memos: Object {
 //
 //    @objc dynamic var id = 0
+    @objc dynamic var creatDay = ""
     @objc dynamic var memoTitle = ""
     @objc dynamic var memoDetail = ""
     @objc dynamic var abstDetail = ""

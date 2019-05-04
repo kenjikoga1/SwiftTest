@@ -27,22 +27,11 @@ class NewAbstController: UIViewController {
         let abstTitle = memos[cellNumber].value(forKey: "memoTitle")
         titleLabel.text = abstTitle as? String
         //取得したカラムを代入
-        
     }
     
     @IBAction func savrBtn(_ sender: Any) {
         //作ったカラムの空白に新たにabstDetailを加える
         let realm = try! Realm()
-        
-//        try! realm.write {
-//            let memo = Memos()
-//            let id = memos[cellNumber].value(forKey: "id") as! Int
-//            let abstDetail = memos[cellNumber].value(forKey: "abstDetail") as! String
-//
-//            memo.id = id
-//            memo.abstDetail = abstDetail
-//            realm.add(memo, update:true)
-//
         //TitleをRealmに保存
         let memo = Memos()
         memos = realm.objects(Memos.self)

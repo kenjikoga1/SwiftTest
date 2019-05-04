@@ -12,6 +12,8 @@ class CustomCell: UITableViewCell {
 
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    
     @IBOutlet weak var memoLabel: UILabel!
     
     @IBOutlet weak var abstView: UIView!

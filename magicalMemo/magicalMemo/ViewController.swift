@@ -72,6 +72,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cellNumber = indexPath.row
         performSegue(withIdentifier: "editMemo", sender: memos[indexPath.row])
     }
+    //Cellの削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //Realmデータを削除
+        let realm = try! Realm()
+        try! realm.write {
+        realm.delete(memos[indexPath.row])
+        }
+        //スワイプでCellを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    
+    
     //遷移時にcellNumberをNewMemoControllerに送る
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //editMemoで遷移の場合
