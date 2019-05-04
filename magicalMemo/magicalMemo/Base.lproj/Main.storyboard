@@ -119,7 +119,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMn-JG-vL0">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Item" id="h0z-mY-hnd"/>
+                                    <barButtonItem systemItem="bookmarks" id="h0z-mY-hnd">
+                                        <connections>
+                                            <segue destination="Wif-0h-dbc" kind="presentation" identifier="card" id="Y00-uy-q5Y"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aoV-EH-H2z"/>
                                     <barButtonItem systemItem="add" id="9Vp-bS-D6Y">
                                         <connections>
@@ -164,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14" y="138"/>
+            <point key="canvasLocation" x="-896" y="256"/>
         </scene>
         <!--Edit Memo-->
         <scene sceneID="WTj-GN-aVb">
@@ -310,7 +314,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMj-8A-i6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-742" y="138"/>
+            <point key="canvasLocation" x="-1658" y="256"/>
         </scene>
         <!--New Abstract-->
         <scene sceneID="kcM-DZ-ujH">
@@ -521,6 +525,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBA-4s-u4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3374" y="-110"/>
+        </scene>
+        <!--Card Controller-->
+        <scene sceneID="fjR-K5-tYH">
+            <objects>
+                <viewController id="Wif-0h-dbc" customClass="CardController" customModule="magicalMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zUm-CE-T8f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zih-Qh-vRI">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="organize" id="jBB-dp-2JT"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kab-ig-bHc"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hlO-E5-kry"/>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mwp-Tf-VgC">
+                                <rect key="frame" x="0.0" y="88" width="414" height="730"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QIm-CS-hVG">
+                                        <rect key="frame" x="20" y="8" width="374" height="68"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="68" id="wio-BJ-wYb"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pS8-ZE-X99">
+                                        <rect key="frame" x="20" y="305" width="374" height="200"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="fb7-TH-GCN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4aa-2k-Cka">
+                                        <rect key="frame" x="20" y="513" width="374" height="200"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cTw-rh-Oga">
+                                        <rect key="frame" x="20" y="97" width="374" height="200"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="SrK-d4-vs5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="cTw-rh-Oga" firstAttribute="trailing" secondItem="pS8-ZE-X99" secondAttribute="trailing" id="0ek-Fo-J2i"/>
+                                    <constraint firstItem="QIm-CS-hVG" firstAttribute="trailing" secondItem="cTw-rh-Oga" secondAttribute="trailing" id="7yk-cN-bij"/>
+                                    <constraint firstItem="pS8-ZE-X99" firstAttribute="trailing" secondItem="4aa-2k-Cka" secondAttribute="trailing" id="B6f-yQ-YOr"/>
+                                    <constraint firstItem="4aa-2k-Cka" firstAttribute="top" secondItem="pS8-ZE-X99" secondAttribute="bottom" constant="8" symbolic="YES" id="BTS-de-m2p"/>
+                                    <constraint firstItem="cTw-rh-Oga" firstAttribute="leading" secondItem="pS8-ZE-X99" secondAttribute="leading" id="O0q-v3-hb0"/>
+                                    <constraint firstItem="pS8-ZE-X99" firstAttribute="leading" secondItem="4aa-2k-Cka" secondAttribute="leading" id="W2E-GG-VIu"/>
+                                    <constraint firstItem="QIm-CS-hVG" firstAttribute="leading" secondItem="cTw-rh-Oga" secondAttribute="leading" id="dVN-6B-gLn"/>
+                                    <constraint firstItem="pS8-ZE-X99" firstAttribute="top" secondItem="cTw-rh-Oga" secondAttribute="bottom" constant="8" symbolic="YES" id="yIp-5j-ifz"/>
+                                    <constraint firstItem="cTw-rh-Oga" firstAttribute="top" secondItem="QIm-CS-hVG" secondAttribute="bottom" constant="21" id="zvo-SR-6br"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="9Fs-xi-A2H" appends="YES" id="yfM-ad-cqh"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="e8t-sq-r44"/>
+                    </view>
+                    <connections>
+                        <outlet property="backCard" destination="mwp-Tf-VgC" id="Gvx-6U-MoS"/>
+                        <segue destination="4eg-HV-Hq8" kind="show" id="TaF-FH-VfL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHo-Sk-SXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="9Fs-xi-A2H">
+                    <connections>
+                        <action selector="swip:" destination="Wif-0h-dbc" id="n7t-kO-wYY"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-28.985507246376812" y="-373.66071428571428"/>
         </scene>
         <!--New Memo-->
         <scene sceneID="K7T-Cd-6Of">
@@ -799,6 +893,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="TaF-FH-VfL"/>
         <segue reference="MUy-Gs-UTC"/>
     </inferredMetricsTieBreakers>
 </document>

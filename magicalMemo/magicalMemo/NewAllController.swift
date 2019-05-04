@@ -67,31 +67,6 @@ class NewAllController: UIViewController,UITextViewDelegate {
     
     @IBAction func saveBtn(_ sender: Any) {
         
-//        let realm = try! Realm()
-//        //TitleをRealmに保存
-//        let memo = Memos()
-//        memos = realm.objects(Memos.self)
-//        let all = memos[cellNumber] as Memos
-//
-//        //memoTextをRealmに保存
-//        try! realm.write {
-//
-//            //現在の日付を取得
-//            let date:Date = Date()
-//            //日付のフォーマットを指定する。
-//            let format = DateFormatter()
-//            format.dateFormat = "yyyy/MM/dd"
-//            //日付をStringに変換する
-//            let sDate = format.string(from: date)
-//
-//            all.creatDay = sDate
-//            all.memoTitle = abstTextView.text
-//            all.memoDetail = abstTextView.text
-//            all.abstDetail = abstTextView.text
-//            all.figureDetail = abstTextView.text
-//            realm.add(memo)
-//        }
-//
         let realm = try! Realm()
         print(Realm.Configuration.defaultConfiguration.fileURL)
         let memo = Memos()
