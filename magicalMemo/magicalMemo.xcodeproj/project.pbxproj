@@ -23,6 +23,7 @@
 		8CC90DBA227C4E8B00CE1A48 /* EditAbstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC90DB9227C4E8B00CE1A48 /* EditAbstController.swift */; };
 		8CC90DBC227C4E9900CE1A48 /* EditFigureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC90DBB227C4E9900CE1A48 /* EditFigureController.swift */; };
 		8CC90DC0227D6B7700CE1A48 /* NewAllController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC90DBF227D6B7700CE1A48 /* NewAllController.swift */; };
+		8CC90DC2227DB0E600CE1A48 /* EditAllController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC90DC1227DB0E600CE1A48 /* EditAllController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8CC90DB9227C4E8B00CE1A48 /* EditAbstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAbstController.swift; sourceTree = "<group>"; };
 		8CC90DBB227C4E9900CE1A48 /* EditFigureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFigureController.swift; sourceTree = "<group>"; };
 		8CC90DBF227D6B7700CE1A48 /* NewAllController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAllController.swift; sourceTree = "<group>"; };
+		8CC90DC1227DB0E600CE1A48 /* EditAllController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAllController.swift; sourceTree = "<group>"; };
 		96762A741FC2C6F59EBE2E2D /* Pods-magicalMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicalMemo.release.xcconfig"; path = "Target Support Files/Pods-magicalMemo/Pods-magicalMemo.release.xcconfig"; sourceTree = "<group>"; };
 		E74B84087B2FB0FAAB59F245 /* Pods-magicalMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicalMemo.debug.xcconfig"; path = "Target Support Files/Pods-magicalMemo/Pods-magicalMemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +102,7 @@
 				8CC90DB7227C3B5400CE1A48 /* NewFigureController.swift */,
 				8CC90DB3227BE06400CE1A48 /* NewAbstController.swift */,
 				8CC90DB1227BD3D100CE1A48 /* NewMemoController.swift */,
+				8CC90DC1227DB0E600CE1A48 /* EditAllController.swift */,
 				8CC90DBF227D6B7700CE1A48 /* NewAllController.swift */,
 				8C5B66FB227BBF66004FF463 /* ViewController.swift */,
 				8C5B66FD227BBF66004FF463 /* Main.storyboard */,
@@ -250,6 +253,7 @@
 				8CC90DB8227C3B5500CE1A48 /* NewFigureController.swift in Sources */,
 				8CC90DB0227BD21400CE1A48 /* Model.swift in Sources */,
 				8CC90DB4227BE06400CE1A48 /* NewAbstController.swift in Sources */,
+				8CC90DC2227DB0E600CE1A48 /* EditAllController.swift in Sources */,
 				8CC90DB2227BD3D100CE1A48 /* NewMemoController.swift in Sources */,
 				8CC90DBC227C4E9900CE1A48 /* EditFigureController.swift in Sources */,
 			);

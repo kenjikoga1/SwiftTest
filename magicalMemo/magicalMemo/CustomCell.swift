@@ -13,6 +13,8 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var createDayLabel: UILabel!
+    @IBOutlet weak var uploadDayLabel: UILabel!
     
     @IBOutlet weak var memoLabel: UILabel!
     

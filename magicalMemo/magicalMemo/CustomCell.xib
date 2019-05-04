@@ -32,6 +32,13 @@
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot9-fT-e2l">
+                                        <rect key="frame" x="5" y="0.0" width="67" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.377708457" green="0.85843359460000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -63,6 +70,13 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Raz-nr-32P">
+                                        <rect key="frame" x="5" y="0.0" width="67" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -97,11 +111,13 @@
             <connections>
                 <outlet property="abstLabel" destination="xCP-Ty-rY6" id="6uF-bg-dyK"/>
                 <outlet property="abstView" destination="rtk-xh-11F" id="4Mx-yG-ysG"/>
+                <outlet property="createDayLabel" destination="Ot9-fT-e2l" id="0nL-5x-ioE"/>
                 <outlet property="figureLabel" destination="6en-7b-Dfq" id="Qj3-O5-dMz"/>
                 <outlet property="figureView" destination="7n7-qS-8DD" id="EBa-Bu-rsT"/>
                 <outlet property="memoLabel" destination="QrF-gi-nAf" id="Vwa-6l-Vee"/>
                 <outlet property="titleLabel" destination="NeI-3L-6Nj" id="c3p-WF-qme"/>
                 <outlet property="titleView" destination="h90-Lb-7Tb" id="MUH-YG-AKv"/>
+                <outlet property="uploadDayLabel" destination="Raz-nr-32P" id="EdL-wh-nMd"/>
             </connections>
             <point key="canvasLocation" x="127.53623188405798" y="34.821428571428569"/>
         </tableViewCell>

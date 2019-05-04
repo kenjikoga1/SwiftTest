@@ -56,6 +56,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let realm = try! Realm()
         let memo = memos[indexPath.row]
         //各Labelに保存内容を反映 indexPathでわける
+        cell.uploadDayLabel.text = memo.updateDay
+        cell.createDayLabel.text = memo.creatDay
         cell.titleLabel.text = memo.memoTitle
         cell.memoLabel.text = memo.memoDetail
         cell.abstLabel.text = memo.abstDetail
@@ -83,18 +85,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
-    
-    
     //遷移時にcellNumberをNewMemoControllerに送る
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //editMemoで遷移の場合
         if segue.identifier == "editMemo"{
-            let em = segue.destination as? EditMemoController
-            em?.cellNumber = self.cellNumber
+            let ea = segue.destination as? EditAllController
+            ea?.cellNumber = self.cellNumber
         //newMemoで遷移の場合
         }else if segue.identifier == "newMemo"{
-            let nm = segue.destination as? NewMemoController
-            nm?.cellNumber = memos.count
+            let na = segue.destination as? NewAllController
+            na?.cellNumber = memos.count
         }
     }
 

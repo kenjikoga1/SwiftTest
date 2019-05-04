@@ -24,9 +24,6 @@ class NewMemoController: UIViewController,UITextViewDelegate {
         //abstBtnを非表示
         abstButton.isHidden = true
     }
-    
-    
-    
         
     @IBAction func saveBtn(_ sender: Any) {
         
