@@ -95,7 +95,7 @@ class NewAllController: UIViewController {
             realm.add(memo)
         
         }
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
     
     

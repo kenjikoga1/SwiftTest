@@ -17,6 +17,7 @@ class EditAllController: UIViewController {
     @IBOutlet weak var figureTextView: UITextView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    
     var memos: Results<Memos>!
     var cellNumber = 0
     
@@ -76,31 +77,40 @@ class EditAllController: UIViewController {
                     all.figureDetail = figureTextView.text
                 }
         self.navigationController?.popViewController(animated: true)
-//        let realm = try! Realm()
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
-//        let memo = Memos()
-//
-//        //現在の日付を取得
-//        let date:Date = Date()
-//        //日付のフォーマットを指定する。
-//        let format = DateFormatter()
-//        format.dateFormat = "yyyy/MM/dd"
-//        //日付をStringに変換する
-//        let sDate = format.string(from: date)
-//
-//        memos = realm.objects(Memos.self)
-//
-//        memo.creatDay = sDate
-//        memo.memoTitle = titleTextField.text ?? ""
-//        memo.memoDetail = memoTextView.text ?? ""
-//        memo.abstDetail = abstTextView.text ?? ""
-//        memo.figureDetail = figureTextView.text ?? ""
-//
-//        try! realm.write {
-//            realm.add(memo)
-//
-//        }
     }
     
-
+    @IBAction func add(_ sender: Any) {
+        let realm = try! Realm()
+        //TitleをRealmに保存
+        let memo = Memos()
+        memos = realm.objects(Memos.self)
+        let all = memos[cellNumber] as Memos
+        
+        //memoTextをRealmに保存
+        try! realm.write {
+            
+            //現在の日付を取得
+            let date:Date = Date()
+            //日付のフォーマットを指定する。
+            let format = DateFormatter()
+            format.dateFormat = "MM/dd"
+            //日付をStringに変換する
+            let sDate = format.string(from: date)
+            
+            all.updateDay = "up: " + sDate
+            all.memoTitle = titleTextField.text ?? ""
+            all.memoDetail = memoTextView.text
+            all.abstDetail = abstTextView.text
+            all.figureDetail = figureTextView.text
+        }
+    }
+    
+    @IBAction func trash(_ sender: Any) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(memos[cellNumber])
+        self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+        }
+    }
+    
 }
