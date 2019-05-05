@@ -31,14 +31,18 @@ class NewAllController: UIViewController,UITextViewDelegate {
         memoTextView.delegate = self
         abstTextView.delegate = self
         figureTextView.delegate = self
-//        createDayLabel.isHidden = true
-//        editDayLabel.isHidden = true
-
         
-        // Do any additional setup after loading the view.
+        memoTextView.layer.cornerRadius = 5
+        memoTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        abstTextView.layer.cornerRadius = 5
+        abstTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        figureTextView.layer.cornerRadius = 5
+        figureTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
+
         //createDayLabelがRealmに入っていた場合表示
         //editDayLabelが修正された場合更新して表示
     }

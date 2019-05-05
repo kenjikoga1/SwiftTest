@@ -72,7 +72,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //cellをクリックした場合
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         cellNumber = indexPath.row
-        performSegue(withIdentifier: "editMemo", sender: memos[indexPath.row])
+        performSegue(withIdentifier: "card", sender: memos[indexPath.row])
     }
     //Cellの削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -88,9 +88,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //遷移時にcellNumberをNewMemoControllerに送る
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //editMemoで遷移の場合
-        if segue.identifier == "editMemo"{
-            let ea = segue.destination as? EditAllController
-            ea?.cellNumber = self.cellNumber
+        if segue.identifier == "card"{
+            let cd = segue.destination as? CardController
+            cd?.cellNumber = self.cellNumber
         //newMemoで遷移の場合
         }else if segue.identifier == "newMemo"{
             let na = segue.destination as? NewAllController
