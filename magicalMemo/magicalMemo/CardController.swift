@@ -57,6 +57,14 @@ class CardController: UIViewController,UITextViewDelegate {
         abstTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         figureTextView.layer.cornerRadius = 10
         figureTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        
+        memoCard.layer.cornerRadius = 10
+        memoCard.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        // 影の設定
+        self.memoCard.layer.shadowOpacity = 0.3
+        self.memoCard.layer.shadowRadius = 20
+        self.memoCard.layer.shadowColor = UIColor.black.cgColor
+        self.memoCard.layer.shadowOffset = CGSize(width: 0, height: 5)
 
     }
     
