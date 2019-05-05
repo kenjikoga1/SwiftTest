@@ -32,11 +32,11 @@ class NewAllController: UIViewController,UITextViewDelegate {
         abstTextView.delegate = self
         figureTextView.delegate = self
         
-        memoTextView.layer.cornerRadius = 5
+        memoTextView.layer.cornerRadius = 10
         memoTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
-        abstTextView.layer.cornerRadius = 5
+        abstTextView.layer.cornerRadius = 10
         abstTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
-        figureTextView.layer.cornerRadius = 5
+        figureTextView.layer.cornerRadius = 10
         figureTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
 
     }
