@@ -15,6 +15,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var topViewLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var makeDay: UILabel!
+
     
     var memos: Results<Memos>!
     var cellNumber = 0
@@ -56,9 +58,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.uploadDayLabel.text = memo.updateDay
         cell.createDayLabel.text = memo.creatDay
         cell.titleLabel.text = memo.memoTitle
-        cell.memoLabel.text = memo.memoDetail
+        cell.memoLabel.text = "F: " + memo.memoDetail
         cell.abstLabel.text = "A: " + memo.abstDetail
-        cell.figureLabel.text = "F: " + memo.figureDetail
+        cell.figureLabel.text = "D: " + memo.figureDetail
         
         let date = Date()
         let timeInterval = date.timeIntervalSince(memo.updateTime)

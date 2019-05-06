@@ -80,7 +80,6 @@ class NewAllController: UIViewController,UITextViewDelegate {
         //日付のフォーマットを指定する。
         let format = DateFormatter()
         format.dateFormat = "MMdd"
-        print(format)
         //日付をStringに変換する
         let sDate = format.string(from: date)
 

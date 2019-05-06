@@ -22,6 +22,7 @@ class CardController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var memoPlace: UILabel!
     @IBOutlet weak var abstPlace: UILabel!
     @IBOutlet weak var figurePlace: UILabel!
+    @IBOutlet weak var make: UILabel!
     
     var centerOfCard:CGPoint!
     var memos: Results<Memos>!
@@ -61,11 +62,17 @@ class CardController: UIViewController,UITextViewDelegate {
         memoCard.layer.cornerRadius = 10
         memoCard.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         // 影の設定
-        self.memoCard.layer.shadowOpacity = 0.3
+        self.memoCard.layer.shadowOpacity = 0.2
         self.memoCard.layer.shadowRadius = 20
         self.memoCard.layer.shadowColor = UIColor.black.cgColor
         self.memoCard.layer.shadowOffset = CGSize(width: 0, height: 5)
-
+        
+        var date = Date()
+        date = topMemo.createTime
+        let format = DateFormatter()
+        format.dateFormat = "yyyy/MM/dd H:mm"
+        let sDate = format.string(from: date)
+        make.text = "create" + sDate
     }
     
     func reset() {
@@ -84,7 +91,7 @@ class CardController: UIViewController,UITextViewDelegate {
 //        card.transform = CGAffineTransform(rotationAngle: xPointCard / (view.frame.width / 2) * -0.785)
         //ドラッグを離した時
         if sender.state == UIGestureRecognizer.State.ended{
-            print(cardNumber,cellNumber)
+//            print(cardNumber,cellNumber)
             if card.center.x < 75{
                 reset()
                 
@@ -93,7 +100,7 @@ class CardController: UIViewController,UITextViewDelegate {
                 if cardNumber >= memos.count{
                     cardNumber = 0
                 }
-                print(cardNumber,cellNumber)
+//                print(cardNumber,cellNumber)
             }else if card.center.x > view.frame.width - 75{
                 reset()
                 
@@ -105,7 +112,7 @@ class CardController: UIViewController,UITextViewDelegate {
                 if cardNumber <= -1{
                     cardNumber = memos.count - 1
                 }
-                print(cardNumber,cellNumber)
+//                print(cardNumber,cellNumber)
             }
             
             UIView.animate(withDuration: 0.2) {
