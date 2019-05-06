@@ -132,6 +132,7 @@ class CardController: UIViewController,UITextViewDelegate {
             let date:Date = Date()
             //日付のフォーマットを指定する。
             let format = DateFormatter()
+            print(format)
             format.dateFormat = "MM/dd"
             //日付をStringに変換する
             let sDate = format.string(from: date)

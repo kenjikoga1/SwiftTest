@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class RoundCell: UITableViewCell {
     
+    var cellNumber = 0
     
     @IBOutlet weak var round: UIView!
     @IBOutlet weak var cellView: UIView!
@@ -29,6 +31,7 @@ class RoundCell: UITableViewCell {
         super.awakeFromNib()
         
         round.layer.cornerRadius = 20
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
