@@ -11,7 +11,8 @@ import RealmSwift
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var topView: UIImageView!
+    @IBOutlet weak var topViewLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,7 +30,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         memos = realm.objects(Memos.self)
         tableView.reloadData()
         
-        topView.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
+//        topView.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
         
     }
     
@@ -62,8 +63,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let date = Date()
         let timeInterval = date.timeIntervalSince(memo.updateTime)
         let daySpan = timeInterval / 60 / 60 / 24
-        print(timeInterval)
-        print(daySpan)
+//        print(timeInterval)
+//        print(daySpan)
         //更新日が一週間以上前なら枠だけにする
         //更新日が一週間以内なら塗りつぶす
         if daySpan >= 0.01{

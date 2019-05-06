@@ -19,15 +19,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jDT-bF-9vh">
-                                <rect key="frame" x="0.0" y="223" width="414" height="502"/>
+                                <rect key="frame" x="0.0" y="224" width="414" height="501"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="502" id="Y3G-mY-Waw"/>
+                                    <constraint firstAttribute="height" constant="501" id="Y3G-mY-Waw"/>
                                 </constraints>
                                 <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMn-JG-vL0">
                                 <rect key="frame" x="0.0" y="725" width="414" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="KWi-4Z-iRV"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aoV-EH-H2z"/>
                                     <barButtonItem systemItem="add" id="9Vp-bS-D6Y">
@@ -38,39 +41,63 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rOy-xY-jHs"/>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fg-X9-ZqB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="223"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anyone who has never made a mistake has never tried anything new." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y99-bq-ylV">
-                                        <rect key="frame" x="20" y="0.0" width="189" height="215"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenpepper3" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-pm-iF6">
+                                <rect key="frame" x="0.0" y="0.0" width="414.00000000000023" height="224.00000000000023"/>
+                                <color key="backgroundColor" red="0.0" green="0.74483128300000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="tU9-MK-ePk"/>
+                                </constraints>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-Cf-T7v">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="fHE-OD-PNv">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hcu-H6-Xck">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="gFB-n6-tMS">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anyone who has never made a mistake has never tried anything new." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wS6-FD-gac">
+                                                        <rect key="frame" x="8" y="0.0" width="189" height="224"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="2fg-X9-ZqB" secondAttribute="trailing" id="0oF-h6-9mI"/>
-                            <constraint firstItem="2fg-X9-ZqB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JMY-6n-tpA"/>
-                            <constraint firstItem="2fg-X9-ZqB" firstAttribute="trailing" secondItem="jDT-bF-9vh" secondAttribute="trailing" id="NYF-j4-JFX"/>
+                            <constraint firstItem="fXD-pm-iF6" firstAttribute="trailing" secondItem="jDT-bF-9vh" secondAttribute="trailing" id="HIg-iL-8He"/>
+                            <constraint firstItem="fXD-pm-iF6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="K3z-Sg-K8s"/>
                             <constraint firstItem="tMn-JG-vL0" firstAttribute="top" secondItem="jDT-bF-9vh" secondAttribute="bottom" id="Ohp-QS-Z1V"/>
-                            <constraint firstItem="2fg-X9-ZqB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rl1-mP-AXR"/>
-                            <constraint firstItem="jDT-bF-9vh" firstAttribute="top" secondItem="2fg-X9-ZqB" secondAttribute="bottom" id="fZs-g3-JDX"/>
-                            <constraint firstItem="2fg-X9-ZqB" firstAttribute="leading" secondItem="jDT-bF-9vh" secondAttribute="leading" id="ls0-mJ-Wn1"/>
+                            <constraint firstAttribute="trailing" secondItem="fXD-pm-iF6" secondAttribute="trailing" id="UTe-oQ-wSw"/>
+                            <constraint firstItem="fXD-pm-iF6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XpI-t3-gbV"/>
                             <constraint firstItem="jDT-bF-9vh" firstAttribute="trailing" secondItem="tMn-JG-vL0" secondAttribute="trailing" id="mir-qG-iwu"/>
                             <constraint firstItem="tMn-JG-vL0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="sPQ-zb-i9n"/>
                             <constraint firstItem="jDT-bF-9vh" firstAttribute="leading" secondItem="tMn-JG-vL0" secondAttribute="leading" id="v4C-ch-ikR"/>
+                            <constraint firstItem="fXD-pm-iF6" firstAttribute="leading" secondItem="jDT-bF-9vh" secondAttribute="leading" id="xHY-zO-vZf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="V3B-Zx-kuG"/>
                     <connections>
                         <outlet property="tableView" destination="jDT-bF-9vh" id="p8q-f5-xaY"/>
-                        <outlet property="topView" destination="2fg-X9-ZqB" id="M36-qw-cap"/>
+                        <outlet property="topView" destination="fXD-pm-iF6" id="jpA-fw-azv"/>
                         <segue destination="Wif-0h-dbc" kind="show" identifier="card" id="yXk-d8-G0O"/>
                     </connections>
                 </viewController>
@@ -356,6 +383,9 @@
             <point key="canvasLocation" x="-29" y="619"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="greenpepper3" width="1429" height="949"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EwH-3o-hKe"/>
     </inferredMetricsTieBreakers>
