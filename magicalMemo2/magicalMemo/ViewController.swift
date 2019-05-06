@@ -59,6 +59,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.abstLabel.text = memo.abstDetail
         cell.figureLabel.text = memo.figureDetail
         
+        let date = Date()
+        let timeInterval = date.timeIntervalSince(memo.updateTime)
+        let daySpan = timeInterval / 60 / 60 / 24
+        print(timeInterval)
+        print(daySpan)
+        //更新日が一週間以上前なら枠だけにする
+        //更新日が一週間以内なら塗りつぶす
+        if daySpan >= 0.01{
+            cell.round.backgroundColor = UIColor.white
+            //枠線
+            cell.round.layer.borderWidth = 1.0
+            //枠線の色
+            cell.round.layer.borderColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1).cgColor
+            cell.createDayLabel.textColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
+        }else{
+            cell.round.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
+        }
+        
+        
         return cell
     }
     
