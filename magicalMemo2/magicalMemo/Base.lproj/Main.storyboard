@@ -39,10 +39,15 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rOy-xY-jHs"/>
+                                    <barButtonItem title="Item" id="fZt-Yb-SdN">
+                                        <connections>
+                                            <action selector="sort:" destination="BYZ-38-t0r" id="5BX-Y4-Ylo"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenpepper3" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-pm-iF6">
-                                <rect key="frame" x="0.0" y="0.0" width="414.00000000000023" height="224.00000000000023"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-pm-iF6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                 <color key="backgroundColor" red="0.0" green="0.74483128300000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="224" id="tU9-MK-ePk"/>
@@ -74,6 +79,7 @@
                     <connections>
                         <outlet property="tableView" destination="jDT-bF-9vh" id="p8q-f5-xaY"/>
                         <outlet property="topView" destination="fXD-pm-iF6" id="jpA-fw-azv"/>
+                        <outlet property="topViewLabel" destination="BSk-Ke-dvC" id="qsw-ne-SQ9"/>
                         <segue destination="Wif-0h-dbc" kind="show" identifier="card" id="yXk-d8-G0O"/>
                     </connections>
                 </viewController>
@@ -359,9 +365,6 @@
             <point key="canvasLocation" x="-29" y="619"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="greenpepper3" width="1429" height="949"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EwH-3o-hKe"/>
     </inferredMetricsTieBreakers>

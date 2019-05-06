@@ -57,8 +57,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.createDayLabel.text = memo.creatDay
         cell.titleLabel.text = memo.memoTitle
         cell.memoLabel.text = memo.memoDetail
-        cell.abstLabel.text = memo.abstDetail
-        cell.figureLabel.text = memo.figureDetail
+        cell.abstLabel.text = "A: " + memo.abstDetail
+        cell.figureLabel.text = "F: " + memo.figureDetail
         
         let date = Date()
         let timeInterval = date.timeIntervalSince(memo.updateTime)
@@ -76,6 +76,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             cell.createDayLabel.textColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
         }else{
             cell.round.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
+            cell.createDayLabel.textColor = UIColor.white
         }
         
         
@@ -83,7 +84,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 100
     }
     //cellをクリックした場合
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -113,6 +114,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             na?.cellNumber = memos.count
         }
     }
+    
+//    @IBAction func sort(_ sender: Any) {
+//        let realm = try! Realm()
+//        let memos = Memos().value(forKey: "creatTime")
+//        print(memos)
+//        let results = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
+//        print(results)
+//        tableView.reloadData()
+//    }
+    
 
 }
 

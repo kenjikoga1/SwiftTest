@@ -93,10 +93,30 @@ class NewAllController: UIViewController,UITextViewDelegate {
         memo.memoDetail = memoTextView.text ?? ""
         memo.abstDetail = abstTextView.text ?? ""
         memo.figureDetail = figureTextView.text ?? ""
+        
 
         try! realm.write {
+//            // 登録済みのデータを、プライマリキー"id"の降順で検索します。
+//            let results = realm.objects(Memos.self).value(forKey: "id")
+//            
+//            // 登録件数を取得します。
+//            let count = memos.count
+//            
+//            // プライマリキーのIDが重複しないように設定します。
+//            let id: Int
+//            if (count == 0) {
+//                // 登録データが0件の場合
+//                id = 0
+//                
+//            } else {
+//                // 登録データがある場合
+//                // IDは既存のID+1とします。
+//                // データを削除している場合、"id"が歯抜けの可能性がありますが、
+//                // 今回は考慮しません。
+//                id = memo.id + 1
+                
             realm.add(memo)
-        
+//            }
         }
         self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
