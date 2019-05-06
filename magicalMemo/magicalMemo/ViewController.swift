@@ -25,7 +25,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
+        tableView.register(UINib(nibName: "RoundCell", bundle: nil), forCellReuseIdentifier: "RoundCell")
         
         //Realmにデータが有ればデータを取得
         //読み込んだデータをtableCellに
@@ -51,7 +51,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RoundCell", for: indexPath) as! RoundCell
         //Realmのデータを読み込む
         let realm = try! Realm()
         let memo = memos[indexPath.row]
@@ -67,7 +67,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 90
     }
     //cellをクリックした場合
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

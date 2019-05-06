@@ -85,7 +85,8 @@ class NewAllController: UIViewController,UITextViewDelegate {
 
         memos = realm.objects(Memos.self)
 
-        memo.creatDay = "M: " + sDate
+        memo.creatDay = sDate
+        memo.updateDay = sDate
         memo.memoTitle = titleTextField.text ?? ""
         memo.memoDetail = memoTextView.text ?? ""
         memo.abstDetail = abstTextView.text ?? ""

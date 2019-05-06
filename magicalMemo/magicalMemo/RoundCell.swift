@@ -11,10 +11,9 @@ import UIKit
 class RoundCell: UITableViewCell {
     
     
+    @IBOutlet weak var round: UIView!
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    
-    @IBOutlet weak var createMonthLabel: UILabel!
     @IBOutlet weak var createDayLabel: UILabel!
     @IBOutlet weak var uploadDayLabel: UILabel!
     
@@ -27,6 +26,15 @@ class RoundCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        round.layer.cornerRadius = 20
+//        cellView.layer.cornerRadius = 10
+//
+//        self.cellView.layer.shadowOpacity = 0.2
+//        self.cellView.layer.shadowRadius = 10
+//        self.cellView.layer.shadowColor = UIColor.black.cgColor
+//        self.cellView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
         // Initialization code
     }
 
