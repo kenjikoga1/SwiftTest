@@ -9,13 +9,18 @@
 import UIKit
 import RealmSwift
 
-class NewAllController: UIViewController,UITextViewDelegate {
+class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
     @IBOutlet weak var abstTextView: UITextView!
     @IBOutlet weak var figureTextView: UITextView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var figureTextViewHeight: NSLayoutConstraint!
+
     
     @IBOutlet weak var memoPlace: UILabel!
     @IBOutlet weak var abstPlace: UILabel!
@@ -24,10 +29,13 @@ class NewAllController: UIViewController,UITextViewDelegate {
     var memos: Results<Memos>!
     var cellNumber = 0
     
+    var isObserving = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.saveButton.isEnabled = false
 
+        titleTextField.delegate = self
         memoTextView.delegate = self
         abstTextView.delegate = self
         figureTextView.delegate = self
@@ -42,7 +50,30 @@ class NewAllController: UIViewController,UITextViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        super.viewWillAppear(animated)
+        // Viewの表示時にキーボード表示・非表示を監視するObserverを登録する
+        if(!isObserving) {
+            let notification = NotificationCenter.default
+            notification.addObserver(self, selector: Selector(("keyboardWillShow:"))
+                , name: UIResponder.keyboardWillShowNotification, object: nil)
+            notification.addObserver(self, selector: Selector(("keyboardWillHide:"))
+                , name: UIResponder.keyboardWillHideNotification, object: nil)
+            isObserving = true
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Viewの表示時にキーボード表示・非表示時を監視していたObserverを解放する
+        super.viewWillDisappear(animated)
+        if(isObserving) {
+            let notification = NotificationCenter.default
+            notification.removeObserver(self)
+            notification.removeObserver(self
+                , name: UIResponder.keyboardWillShowNotification, object: nil)
+            notification.removeObserver(self
+                , name: UIResponder.keyboardWillHideNotification, object: nil)
+            isObserving = false
+        }
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -66,6 +97,15 @@ class NewAllController: UIViewController,UITextViewDelegate {
             figurePlace.isHidden = true
         }
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        memoTextView.resignFirstResponder()
+        abstTextView.resignFirstResponder()
+        figureTextView.resignFirstResponder()
+        
+    }
+    
+
     
     @IBAction func saveBtn(_ sender: Any) {
         
@@ -111,8 +151,36 @@ class NewAllController: UIViewController,UITextViewDelegate {
         self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
     
-    
 
+    
+    //*********************** キーボード選択時に画面が上がる ***********************
+    func keyboardWillShow(notification: NSNotification?) {
+        // キーボード表示時の動作をここに記述する
+        let rect = (notification?.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let duration:TimeInterval = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        UIView.animate(withDuration: duration, animations: {
+            let transform = CGAffineTransform(translationX: 0, y: -rect.size.height)
+            self.view.transform = transform
+        },completion:nil)
+    }
+    func keyboardWillHide(notification: NSNotification?) {
+        // キーボード消滅時の動作をここに記述する
+        let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
+        UIView.animate(withDuration: duration, animations:{
+            self.view.transform = CGAffineTransform.identity
+        },
+                                   completion:nil)
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        let maxHeight = 80.0  // 入力フィールドの最大サイズ
+        if(figureTextView.frame.size.height.native < maxHeight) {
+            let size:CGSize = figureTextView.sizeThatFits(figureTextView.frame.size)
+            figureTextViewHeight.constant = size.height
+        }
+    }
+    
+//*********************** キーボード選択時に画面が上がる ***********************
     /*
     // MARK: - Navigation
 
