@@ -99,6 +99,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let realm = try! Realm()
         try! realm.write {
         realm.delete(memos[indexPath.row])
+            
         }
         //スワイプでCellを削除
         tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -117,15 +118,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
-//    @IBAction func sort(_ sender: Any) {
-//        let realm = try! Realm()
+    @IBAction func sort(_ sender: Any) {
+        
+        let realm = try! Realm()
 //        let memos = Memos().value(forKey: "creatTime")
 //        print(memos)
-//        let results = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
-//        print(results)
+        let results = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
+        
+//
+//        var cards = Array(realm.objects(Memos.self))
+//        let moved = cards
+//        cards.removeAll()
+//        cards.append(moved)
+//        
+//        print(cards)
+//        print(moved)
+//
 //        tableView.reloadData()
-//    }
-    
-
+    }
 }
 

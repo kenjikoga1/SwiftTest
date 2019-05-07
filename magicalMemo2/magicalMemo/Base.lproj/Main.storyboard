@@ -41,7 +41,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rOy-xY-jHs"/>
                                     <barButtonItem title="Item" id="fZt-Yb-SdN">
                                         <connections>
-                                            <action selector="sort:" destination="BYZ-38-t0r" id="5BX-Y4-Ylo"/>
+                                            <action selector="sort:" destination="BYZ-38-t0r" id="a59-3u-FD3"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -386,6 +386,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iE7-yx-NEC"/>
+        <segue reference="EwH-3o-hKe"/>
     </inferredMetricsTieBreakers>
 </document>

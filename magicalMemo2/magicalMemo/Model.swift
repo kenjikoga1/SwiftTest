@@ -22,7 +22,7 @@ class Memos: Object {
     @objc dynamic var createTime: Date = Date()
     @objc dynamic var updateTime: Date = Date()
 
-    
+//
 //    override static func primaryKey() -> String? {
 //        return "id"
 //    }

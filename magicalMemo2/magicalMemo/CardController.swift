@@ -150,6 +150,20 @@ class CardController: UIViewController,UITextViewDelegate {
             all.memoDetail = memoTextView.text
             all.abstDetail = abstTextView.text
             all.figureDetail = figureTextView.text
+            
+//            let count = memos.count
+//            let id: Int
+//            if (count == 0) {
+//                // 登録データが0件の場合
+//                all.id = 0
+//
+//            } else {
+//                // 登録データがある場合
+//                // IDは既存のID+1とします。
+//                // データを削除している場合、"id"が歯抜けの可能性がありますが、
+//                // 今回は考慮しません。
+//                all.id = all.id + 1
+//            }
         }
         self.navigationController?.popViewController(animated: true)
     }
