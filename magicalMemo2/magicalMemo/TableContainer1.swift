@@ -27,13 +27,7 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
         tableView.register(UINib(nibName: "RoundCell", bundle: nil), forCellReuseIdentifier: "RoundCell")
         
         let realm = try! Realm()
-        if var memos = results{
-            tableView.reloadData()
-        }else{
-            memos = realm.objects(Memos.self)
-            tableView.reloadData()
-            print("できてない")
-        }
+        memos = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
         
         //        topView.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
         
@@ -42,13 +36,7 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         //Realmを読み込む
         let realm = try! Realm()
-        if var memos = results{
-            tableView.reloadData()
-        }else{
-            memos = realm.objects(Memos.self)
-            tableView.reloadData()
-            print("できてない")
-        }
+        memos = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
         //読み込んだデータをtableCellに
         //tableViewをリロード
     }

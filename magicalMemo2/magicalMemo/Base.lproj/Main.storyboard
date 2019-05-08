@@ -34,19 +34,19 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNu-Zd-AQq">
                                 <rect key="frame" x="0.0" y="209" width="414" height="516"/>
                                 <connections>
-                                    <segue destination="O5X-YK-OyV" kind="embed" id="NUS-Jb-7xU"/>
+                                    <segue destination="O5X-YK-OyV" kind="embed" identifier="favoTable" id="NUS-Jb-7xU"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Py-ce-7a1">
                                 <rect key="frame" x="0.0" y="209" width="414" height="516"/>
                                 <connections>
-                                    <segue destination="eIb-dN-fSN" kind="embed" id="Qim-XG-AMN"/>
+                                    <segue destination="eIb-dN-fSN" kind="embed" identifier="updateTable" id="Qim-XG-AMN"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTk-Jr-kvI">
                                 <rect key="frame" x="0.0" y="209" width="414" height="516"/>
                                 <connections>
-                                    <segue destination="Jci-c1-wl6" kind="embed" id="jh8-hM-rha"/>
+                                    <segue destination="Jci-c1-wl6" kind="embed" identifier="makeTable" id="jh8-hM-rha"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1T-uF-XYo">

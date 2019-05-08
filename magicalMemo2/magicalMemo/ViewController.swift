@@ -35,33 +35,32 @@ class ViewController: UIViewController {
         container1.isHidden = false
         container2.isHidden = true
         container3.isHidden = true
-        
-        let realm = try! Realm()
-        let results = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
+
     }
     
     @IBAction func sortUpdateDay(_ sender: Any) {
         container1.isHidden = true
         container2.isHidden = false
         container3.isHidden = true
-        
-        let realm = try! Realm()
-        let results = realm.objects(Memos.self).sorted(byKeyPath: "updateTime", ascending: false)
+
     }
     @IBAction func sortFavo(_ sender: Any) {
         container1.isHidden = true
         container2.isHidden = true
-        
-        let realm = try! Realm()
-        let results = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
+
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let tc1 = segue.destination as? TableContainer1
-        tc1?.results = self.results
-        let tc2 = segue.destination as? TableContainer2
-        tc2?.results = self.results
-    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "makeTable"{
+//            let tc1 = segue.destination as? TableContainer1
+//            tc1?.results = self.results
+//        }
+//        if segue.identifier == "updateTable" {
+//            let tc2 = segue.destination as? TableContainer2
+//            tc2?.results = self.results
+//        }
+//    }
 
 }
 
