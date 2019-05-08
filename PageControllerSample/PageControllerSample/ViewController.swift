@@ -18,10 +18,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        containers = [viewController1,viewController2]
+        viewController1.isHidden = false
+        viewController2.isHidden = true
         
     }
 
-
+    @IBAction func button1(_ sender: Any) {
+        viewController1.isHidden = false
+        viewController2.isHidden = true
+    }
+    
+    @IBAction func button2(_ sender: Any) {
+        viewController1.isHidden = true
+        viewController2.isHidden = false
+    }
 }
 

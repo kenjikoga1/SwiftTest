@@ -116,7 +116,6 @@
                 <outlet property="abstLabel" destination="ncG-UH-PiO" id="23B-4u-U3R"/>
                 <outlet property="cellView" destination="4aQ-wo-bCs" id="cn5-I5-X29"/>
                 <outlet property="createDayLabel" destination="FHm-sj-NMi" id="qRG-Xh-WCX"/>
-                <outlet property="createMonthLabel" destination="FHm-sj-NMi" id="hp9-eX-Uo3"/>
                 <outlet property="figureLabel" destination="LGP-Xt-Vr6" id="HSZ-Fj-wHE"/>
                 <outlet property="memoLabel" destination="odk-BW-wjt" id="pwL-au-SEr"/>
                 <outlet property="round" destination="7cY-hv-KHT" id="51d-5B-dW0"/>
