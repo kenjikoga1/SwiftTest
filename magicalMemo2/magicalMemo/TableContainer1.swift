@@ -16,8 +16,6 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
     
     var memos: Results<Memos>!
     var cellNumber = 0
-    var results: Results<Memos>!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +26,7 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
         
         let realm = try! Realm()
         memos = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
-        
+        tableView.reloadData()
         //        topView.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
         
     }
@@ -37,8 +35,7 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
         //Realmを読み込む
         let realm = try! Realm()
         memos = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
-        //読み込んだデータをtableCellに
-        //tableViewをリロード
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,8 +73,6 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
             cell.round.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
             cell.createDayLabel.textColor = UIColor.white
         }
-        
-        
         return cell
     }
     
@@ -95,7 +90,6 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
         let realm = try! Realm()
         try! realm.write {
             realm.delete(memos[indexPath.row])
-            
         }
         //スワイプでCellを削除
         tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -105,6 +99,10 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //editMemoで遷移の場合
         if segue.identifier == "card"{
+            let realm = try! Realm()
+            
+            
+            
             let cd = segue.destination as? CardController
             cd?.cellNumber = self.cellNumber
             //newMemoで遷移の場合

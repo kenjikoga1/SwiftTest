@@ -15,8 +15,6 @@ class TableContainer2: UIViewController,UITableViewDataSource,UITableViewDelegat
     
     var memos: Results<Memos>!
     var cellNumber = 0
-    var results: Results<Memos>!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +25,7 @@ class TableContainer2: UIViewController,UITableViewDataSource,UITableViewDelegat
         
         let realm = try! Realm()
         memos = realm.objects(Memos.self).sorted(byKeyPath: "updateTime", ascending: false)
-        
+        tableView.reloadData()
         //        topView.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
         
     }
@@ -36,7 +34,7 @@ class TableContainer2: UIViewController,UITableViewDataSource,UITableViewDelegat
         //Realmを読み込む
         let realm = try! Realm()
         memos = realm.objects(Memos.self).sorted(byKeyPath: "updateTime", ascending: false)
-        
+        tableView.reloadData()
         //読み込んだデータをtableCellに
         //tableViewをリロード
     }

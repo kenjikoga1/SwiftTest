@@ -10,8 +10,9 @@ import Foundation
 import RealmSwift
 
 class Memos: Object {
+    static let realm = try! Realm()
 //
-//    @objc dynamic var id = 0
+    @objc dynamic var id = 0
     @objc dynamic var creatDay = ""
     @objc dynamic var updateDay = ""
     @objc dynamic var memoTitle = ""
@@ -22,8 +23,22 @@ class Memos: Object {
     @objc dynamic var createTime: Date = Date()
     @objc dynamic var updateTime: Date = Date()
 
-//
-//    override static func primaryKey() -> String? {
-//        return "id"
-//    }
+
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    static func create() -> Memos {
+        let memo = Memos()
+        memo.id = lastId()
+        return memo
+    }
+    
+    static func lastId() -> Int {
+        if let memo = realm.objects(Memos.self).last {
+            return memo.id + 1
+        } else {
+            return 1
+        }
+    }
 }

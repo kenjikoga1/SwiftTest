@@ -15,8 +15,6 @@ class TableContainer3: UIViewController,UITableViewDataSource,UITableViewDelegat
     
     var memos: Results<Memos>!
     var cellNumber = 0
-    var results: Results<Memos>!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
