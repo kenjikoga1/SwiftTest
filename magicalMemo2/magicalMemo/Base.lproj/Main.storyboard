@@ -535,6 +535,7 @@
                             <constraint firstItem="xlM-qv-jH5" firstAttribute="top" secondItem="mae-QZ-BuK" secondAttribute="top" id="Myw-CF-eTo"/>
                             <constraint firstAttribute="bottom" secondItem="xlM-qv-jH5" secondAttribute="bottom" id="iRp-8M-2Fl"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="zK5-3b-NZY"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="xlM-qv-jH5" id="2k5-e5-Idi"/>
@@ -565,6 +566,7 @@
                             <constraint firstItem="WzV-dM-DaV" firstAttribute="top" secondItem="Iyg-ub-Hdy" secondAttribute="top" id="ewm-yo-NK6"/>
                             <constraint firstAttribute="trailing" secondItem="WzV-dM-DaV" secondAttribute="trailing" id="fgh-Kw-UFH"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="OJD-wq-ZXA"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="WzV-dM-DaV" id="NT5-HF-caX"/>

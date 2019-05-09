@@ -35,6 +35,11 @@ class ViewController: UIViewController {
         container1.isHidden = false
         container2.isHidden = true
         container3.isHidden = true
+        
+//        let t2 = ViewController.self as! TableContainer2
+//        t2.tableView.reloadData()
+//        let t3 = ViewController.self as! TableContainer3
+//        t3.tableView.reloadData()
 
     }
     
@@ -42,12 +47,21 @@ class ViewController: UIViewController {
         container1.isHidden = true
         container2.isHidden = false
         container3.isHidden = true
+        
+//        let t1 = ViewController.self as! TableContainer1
+//        t1.tableView.reloadData()
+//        let t3 = ViewController.self as! TableContainer3
+//        t3.tableView.reloadData()
 
     }
     @IBAction func sortFavo(_ sender: Any) {
         container1.isHidden = true
         container2.isHidden = true
-
+//
+//        let t1 = ViewController.self as! TableContainer1
+//        t1.tableView.reloadData()
+//        let t2 = ViewController.self as! TableContainer2
+//        t2.tableView.reloadData()
     }
     
     

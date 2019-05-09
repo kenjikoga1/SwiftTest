@@ -99,10 +99,6 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //editMemoで遷移の場合
         if segue.identifier == "card"{
-            let realm = try! Realm()
-            
-            
-            
             let cd = segue.destination as? CardController
             cd?.cellNumber = self.cellNumber
             //newMemoで遷移の場合

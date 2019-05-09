@@ -125,7 +125,14 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
             
             memos = realm.objects(Memos.self)
             
-            memo.id = Memos.lastId()
+            if memo.id <= Memos.lastId(){
+                memo.id = Memos.lastId() + 1
+            }else{
+                memo.id = Memos.lastId()
+            }
+            
+            
+            
             memo.createTime = date
             
             memo.creatDay = sDate

@@ -27,7 +27,6 @@ class TableContainer2: UIViewController,UITableViewDataSource,UITableViewDelegat
         memos = realm.objects(Memos.self).sorted(byKeyPath: "updateTime", ascending: false)
         tableView.reloadData()
         //        topView.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +92,6 @@ class TableContainer2: UIViewController,UITableViewDataSource,UITableViewDelegat
         let realm = try! Realm()
         try! realm.write {
             realm.delete(memos[indexPath.row])
-            
         }
         //スワイプでCellを削除
         tableView.deleteRows(at: [indexPath], with: .automatic)
