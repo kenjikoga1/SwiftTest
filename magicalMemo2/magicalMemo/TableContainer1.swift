@@ -107,6 +107,10 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
             na?.cellNumber = memos.count
         }
     }
+    
+    func reloadTable()  {
+        tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 

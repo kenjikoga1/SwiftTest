@@ -110,7 +110,9 @@ class TableContainer2: UIViewController,UITableViewDataSource,UITableViewDelegat
         }
     }
     
-
+    func reloadTable()  {
+        tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 

@@ -113,7 +113,9 @@ class TableContainer3: UIViewController,UITableViewDataSource,UITableViewDelegat
         }
     }
     
-    
+    func reloadTable()  {
+        tableView.reloadData()
+    }
     /*
      // MARK: - Navigation
      
