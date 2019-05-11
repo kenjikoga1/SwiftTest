@@ -28,7 +28,6 @@ class CardController: UIViewController,UITextViewDelegate {
     var memos: Results<Memos>!
     var cellNumber = 0
     var cardNumber = 0
-    var prKey = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,26 +39,27 @@ class CardController: UIViewController,UITextViewDelegate {
         
         setPlaceHolder()
         
+        //        let memo = Memos()
+        //        memos = realm.objects(Memos.self).filter("id")
+        //        print(memos)
+        //        let topMemo = memos[cellNumber] as Memos
+        //memoTextをRealmに保存
         
         let realm = try! Realm()
-        //前tableのindexPathでcellNumberとして送られたidを受け取る
-        memos = realm.objects(Memos.self).filter("id", prKey)
-        textVi = memos.memoTitle
-        print(memos)
+        let memos = realm.objects(Memos.self)
+        let topMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
         
-        //8がきたらオーバーして落ちる RealmのKey8のオブジェクトを探す
-        //探したオブジェクトをtopMemoに入れる
-        let topMemo = memos[cellNumber] as Memos
-        //memoTextをRealmに保存
         try! realm.write {
-            titleTextField.text = topMemo.memoTitle
-            memoTextView.text = topMemo.memoDetail
-            abstTextView.text = topMemo.abstDetail
-            figureTextView.text = topMemo.figureDetail
+            titleTextField.text = topMemo?.memoTitle
+            memoTextView.text = topMemo?.memoDetail
+            abstTextView.text = topMemo?.abstDetail
+            figureTextView.text = topMemo?.figureDetail
         }
-        
-        
-        cardNumber = cellNumber
+        //index番号を取得
+        let indexNumber = memos.index(of: topMemo!)
+        print(indexNumber!)
+        //cardNumberにindex番号を入れる
+        cardNumber = indexNumber ?? 0
         
         memoTextView.layer.cornerRadius = 10
         memoTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
@@ -76,12 +76,12 @@ class CardController: UIViewController,UITextViewDelegate {
         self.memoCard.layer.shadowColor = UIColor.black.cgColor
         self.memoCard.layer.shadowOffset = CGSize(width: 0, height: 5)
         
-        var date = Date()
-        date = topMemo.createTime
-        let format = DateFormatter()
-        format.dateFormat = "yyyy/MM/dd H:mm"
-        let sDate = format.string(from: date)
-        make.text = "create" + sDate
+//        var date = Date()
+//        date = topMemo!.createTime
+//        let format = DateFormatter()
+//        format.dateFormat = "yyyy/MM/dd H:mm"
+//        let sDate = format.string(from: date)
+//        make.text = "create" + sDate
     }
     
     func reset() {
@@ -104,7 +104,7 @@ class CardController: UIViewController,UITextViewDelegate {
             if card.center.x < 75{
                 reset()
                 
-                realmSet()
+//                realmSet()
                 cardNumber += 1
                 if cardNumber >= memos.count{
                     cardNumber = 0
@@ -113,7 +113,7 @@ class CardController: UIViewController,UITextViewDelegate {
             }else if card.center.x > view.frame.width - 75{
                 reset()
                 
-                realmSet()
+//                realmSet()
                 cardNumber -= 1
                 if cardNumber >= memos.count{
                     cardNumber = memos.count - 1
@@ -136,10 +136,16 @@ class CardController: UIViewController,UITextViewDelegate {
     @IBAction func saveBtn(_ sender: Any) {
         
         let realm = try! Realm()
-        //TitleをRealmに保存
-        let memo = Memos()
-        memos = realm.objects(Memos.self)
-        let all = memos[cellNumber] as Memos
+        
+        let memos = realm.objects(Memos.self)
+        let topMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
+        
+        
+        
+//        //TitleをRealmに保存
+//        let memo = Memos()
+//        memos = realm.objects(Memos.self)
+//        let topMemo = memos[cellNumber] as Memos
         
         //memoTextをRealmに保存
         try! realm.write {
@@ -152,13 +158,13 @@ class CardController: UIViewController,UITextViewDelegate {
             //日付をStringに変換する
             let sDate = format.string(from: date)
             
-            all.updateTime = date
+            topMemo?.updateTime = date
             
-            all.updateDay = "up: " + sDate
-            all.memoTitle = titleTextField.text ?? ""
-            all.memoDetail = memoTextView.text
-            all.abstDetail = abstTextView.text
-            all.figureDetail = figureTextView.text
+            topMemo?.updateDay = "up: " + sDate
+            topMemo?.memoTitle = titleTextField.text ?? ""
+            topMemo?.memoDetail = memoTextView.text
+            topMemo?.abstDetail = abstTextView.text
+            topMemo?.figureDetail = figureTextView.text
             
 //            let count = memos.count
 //            let id: Int
@@ -180,9 +186,8 @@ class CardController: UIViewController,UITextViewDelegate {
     @IBAction func add(_ sender: Any) {
         let realm = try! Realm()
         //TitleをRealmに保存
-        let memo = Memos()
-        memos = realm.objects(Memos.self)
-        let all = memos[cellNumber] as Memos
+        let memos = realm.objects(Memos.self)
+        let topMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
         
         //memoTextをRealmに保存
         try! realm.write {
@@ -195,18 +200,19 @@ class CardController: UIViewController,UITextViewDelegate {
             //日付をStringに変換する
             let sDate = format.string(from: date)
             
-            all.updateDay = "up: " + sDate
-            all.memoTitle = titleTextField.text ?? ""
-            all.memoDetail = memoTextView.text
-            all.abstDetail = abstTextView.text
-            all.figureDetail = figureTextView.text
+            topMemo?.updateDay = "up: " + sDate
+            topMemo?.memoTitle = titleTextField.text ?? ""
+            topMemo?.memoDetail = memoTextView.text
+            topMemo?.abstDetail = abstTextView.text
+            topMemo?.figureDetail = figureTextView.text
         }
     }
     
     @IBAction func trash(_ sender: Any) {
         let realm = try! Realm()
+        let memos = realm.objects(Memos.self)
         try! realm.write {
-            realm.delete(memos[cellNumber])
+            realm.delete(realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)!)
             self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
         }
     }
@@ -237,20 +243,18 @@ class CardController: UIViewController,UITextViewDelegate {
         }
     }
     
-    func realmSet() {
-        let realm = try! Realm()
-        let memo = Memos()
-        memos = realm.objects(Memos.self)
-        cellNumber = cardNumber
-        let topMemo = memos[cardNumber] as Memos
-        //memoTextをRealmに保存
-        try! realm.write {
-            titleTextField.text = topMemo.memoTitle
-            memoTextView.text = topMemo.memoDetail
-            abstTextView.text = topMemo.abstDetail
-            figureTextView.text = topMemo.figureDetail
-        }
-    }
+//    func realmSet() {
+//        let realm = try! Realm()
+//        let memos = realm.objects(Memos.self)
+//        let moveMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
+//        //memoTextをRealmに保存
+//        try! realm.write {
+//            titleTextField.text = moveMemo?.memoTitle
+//            memoTextView.text = moveMemo?.memoDetail
+//            abstTextView.text = moveMemo?.abstDetail
+//            figureTextView.text = moveMemo?.figureDetail
+//        }
+//    }
     /*
     // MARK: - Navigation
 

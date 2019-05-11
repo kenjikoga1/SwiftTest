@@ -83,7 +83,7 @@ class TableContainer2: UIViewController,UITableViewDataSource,UITableViewDelegat
     }
     //cellをクリックした場合
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellNumber = indexPath.row
+        cellNumber = memos[indexPath.row].id
         performSegue(withIdentifier: "card", sender: memos[indexPath.row])
     }
     //Cellの削除

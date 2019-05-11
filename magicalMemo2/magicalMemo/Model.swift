@@ -36,7 +36,7 @@ class Memos: Object {
     
     static func lastId() -> Int {
         if let memo = realm.objects(Memos.self).last {
-            return memo.id + 1
+            return memo.id
         } else {
             return 1
         }

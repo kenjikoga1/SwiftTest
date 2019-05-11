@@ -46,6 +46,7 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         abstTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         figureTextView.layer.cornerRadius = 10
         figureTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,8 +104,8 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
         try! realm.write {
-            let memos = realm.objects(Memos.self)
             let memo = Memos()
+            
             //現在の日付を取得
             let date:Date = Date()
             //日付のフォーマットを指定する。
