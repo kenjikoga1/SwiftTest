@@ -28,6 +28,7 @@ class CardController: UIViewController,UITextViewDelegate {
     var memos: Results<Memos>!
     var cellNumber = 0
     var cardNumber = 0
+    var prKey = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +40,15 @@ class CardController: UIViewController,UITextViewDelegate {
         
         setPlaceHolder()
         
+        
         let realm = try! Realm()
-        let memo = Memos()
-        memos = realm.objects(Memos.self)
+        //前tableのindexPathでcellNumberとして送られたidを受け取る
+        memos = realm.objects(Memos.self).filter("id", prKey)
+        textVi = memos.memoTitle
+        print(memos)
+        
+        //8がきたらオーバーして落ちる RealmのKey8のオブジェクトを探す
+        //探したオブジェクトをtopMemoに入れる
         let topMemo = memos[cellNumber] as Memos
         //memoTextをRealmに保存
         try! realm.write {
@@ -50,6 +57,8 @@ class CardController: UIViewController,UITextViewDelegate {
             abstTextView.text = topMemo.abstDetail
             figureTextView.text = topMemo.figureDetail
         }
+        
+        
         cardNumber = cellNumber
         
         memoTextView.layer.cornerRadius = 10

@@ -16,6 +16,7 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
     
     var memos: Results<Memos>!
     var cellNumber = 0
+    var prKey = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
         memos = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
         tableView.reloadData()
         //        topView.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
+        
         
     }
     
@@ -81,8 +83,11 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
     }
     //cellをクリックした場合
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellNumber = indexPath.row
+        //遷移する
         performSegue(withIdentifier: "card", sender: memos[indexPath.row])
+        //idを持って活かせる　８とか
+        prKey = memos[indexPath.row].id
+        
     }
     //Cellの削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -101,6 +106,7 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
         if segue.identifier == "card"{
             let cd = segue.destination as? CardController
             cd?.cellNumber = self.cellNumber
+            cd?.prKey = self.prKey
             //newMemoで遷移の場合
         }else if segue.identifier == "newMemo"{
             let na = segue.destination as? NewAllController

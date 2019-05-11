@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var container3: UIView!
     
     var memos: Results<Memos>!
-    var cellNumber = 0
     var results: Results<Memos>!
     
     override func viewDidLoad() {
