@@ -47,7 +47,21 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         figureTextView.layer.cornerRadius = 10
         figureTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
 
+        
+        let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        kbToolBar.barStyle = UIBarStyle.default  // スタイルを設定
+        kbToolBar.sizeToFit()  // 画面幅に合わせてサイズを変更
+        // スペーサー
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        // 閉じるボタン
+        let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.commitButtonTapped))
+        kbToolBar.items = [spacer, commitButton]
+        memoTextView.inputAccessoryView = kbToolBar
+        abstTextView.inputAccessoryView = kbToolBar
+        figureTextView.inputAccessoryView = kbToolBar
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -89,11 +103,15 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        memoTextView.resignFirstResponder()
-        abstTextView.resignFirstResponder()
-        figureTextView.resignFirstResponder()
-        
+
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (self.memoTextView.isFirstResponder) {
+            self.memoTextView.resignFirstResponder()
+        }
+        if (self.abstTextView.isFirstResponder) {
+            self.abstTextView.resignFirstResponder()
+        }
     }
     
 
@@ -149,6 +167,10 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
     
+    //textViewにdoneボタンを付ける
+    @objc func commitButtonTapped() {
+        self.view.endEditing(true)
+    }
 
     
     //*********************** キーボード選択時に画面が上がる ***********************
@@ -157,7 +179,7 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         // let rect = (notification?.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         // let duration:TimeInterval = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
         UIView.animate(withDuration: 100, animations: {
-            let transform = CGAffineTransform(translationX: 0, y: -250)
+            let transform = CGAffineTransform(translationX: 0, y: -300)
             self.view.transform = transform},completion:nil)
     }
     @objc func keyboardWillHide() {

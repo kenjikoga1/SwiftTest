@@ -8,9 +8,11 @@
 
 import UIKit
 import RealmSwift
+import GoogleMobileAds
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var imageVIew: UIImageView!
     var table1: TableContainer1!
     var table2: TableContainer2!
     var table3: TableContainer3!
@@ -19,15 +21,44 @@ class ViewController: UIViewController {
     @IBOutlet weak var container2: UIView!
     @IBOutlet weak var container3: UIView!
     
+    
+    @IBOutlet weak var makeLabel: UIButton!
+    @IBOutlet weak var updateLabel: UIButton!
+    @IBOutlet weak var favoriteLabel: UIButton!
+    
+    
     var memos: Results<Memos>!
     var cellNumber = 0
     var results: Results<Memos>!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        makeLabel.layer.borderWidth = 0.3
+        makeLabel.layer.borderColor = UIColor.lightGray.cgColor
+        
+        updateLabel.layer.borderWidth = 0.3
+        updateLabel.layer.borderColor = UIColor.lightGray.cgColor
+        
+        favoriteLabel.layer.borderWidth = 0.3
+        favoriteLabel.layer.borderColor = UIColor.lightGray.cgColor
+        
         container1.isHidden = false
         container2.isHidden = true
         container3.isHidden = true
+        
+        //広告設定
+        let gadBannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        gadBannerView.center = self.view.center
+        gadBannerView.adUnitID = "ca-app-pub-1331496561960773/5194326329" // ここにAdMobで取得したIDを設定する
+        gadBannerView.rootViewController = self;
+        
+        let request = GADRequest();
+        request.testDevices = [ "kGADSimulatorID" ] // リクエストをロードする前にテストデバイスを登録する
+        gadBannerView.load(request)
+        
+        self.view.addSubview(gadBannerView)
  
     }
     

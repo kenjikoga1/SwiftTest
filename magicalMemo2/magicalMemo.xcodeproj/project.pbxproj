@@ -13,6 +13,7 @@
 		8C5B66FF227BBF66004FF463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B66FD227BBF66004FF463 /* Main.storyboard */; };
 		8C5B6701227BBF67004FF463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B6700227BBF67004FF463 /* Assets.xcassets */; };
 		8C5B6704227BBF67004FF463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B6702227BBF67004FF463 /* LaunchScreen.storyboard */; };
+		8CBBBB312287C2BD008B1055 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CBBBB302287C2BD008B1055 /* GoogleService-Info.plist */; };
 		8CC22200228316B400DEFA14 /* TableContainer1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC221FF228316B400DEFA14 /* TableContainer1.swift */; };
 		8CC22202228316CA00DEFA14 /* TableContainer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC22201228316CA00DEFA14 /* TableContainer2.swift */; };
 		8CC22204228318FC00DEFA14 /* TableContainer3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC22203228318FC00DEFA14 /* TableContainer3.swift */; };
@@ -32,6 +33,7 @@
 		8C5B6700227BBF67004FF463 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C5B6703227BBF67004FF463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C5B6705227BBF67004FF463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CBBBB302287C2BD008B1055 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8CC221FF228316B400DEFA14 /* TableContainer1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContainer1.swift; sourceTree = "<group>"; };
 		8CC22201228316CA00DEFA14 /* TableContainer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContainer2.swift; sourceTree = "<group>"; };
 		8CC22203228318FC00DEFA14 /* TableContainer3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContainer3.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				8C5B6700227BBF67004FF463 /* Assets.xcassets */,
 				8C5B6702227BBF67004FF463 /* LaunchScreen.storyboard */,
 				8C5B6705227BBF67004FF463 /* Info.plist */,
+				8CBBBB302287C2BD008B1055 /* GoogleService-Info.plist */,
 			);
 			path = magicalMemo;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			files = (
 				8C5B6704227BBF67004FF463 /* LaunchScreen.storyboard in Resources */,
 				8C5B6701227BBF67004FF463 /* Assets.xcassets in Resources */,
+				8CBBBB312287C2BD008B1055 /* GoogleService-Info.plist in Resources */,
 				8CC90DCA227EA8E600CE1A48 /* RoundCell.xib in Resources */,
 				8C5B66FF227BBF66004FF463 /* Main.storyboard in Resources */,
 			);
@@ -213,15 +217,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-magicalMemo/Pods-magicalMemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

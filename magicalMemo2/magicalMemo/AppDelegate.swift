@@ -7,26 +7,39 @@
 //
 
 import UIKit
+import Firebase
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        //ナビゲーションアイテムの色を変更
-        UINavigationBar.appearance().tintColor = .white
-        //ナビゲーションバーの背景を変更
-        UINavigationBar.appearance().barTintColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
-        //ナビゲーションのタイトル文字列の色を変更
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        //ナビゲーションバーの下線を消す
-        UINavigationBar.appearance().shadowImage = UIImage()
-        
-        return true
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
+        -> Bool {
+            FirebaseApp.configure()
+            GADMobileAds.sharedInstance().start(completionHandler: nil)
+            
+            GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544/1712485313")
+            return true
     }
+    
+    
+
+//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        // Override point for customization after application launch.
+////        //ナビゲーションアイテムの色を変更
+////        UINavigationBar.appearance().tintColor = .white
+////        //ナビゲーションバーの背景を変更
+////        UINavigationBar.appearance().barTintColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
+////        //ナビゲーションのタイトル文字列の色を変更
+////        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+////        //ナビゲーションバーの下線を消す
+////        UINavigationBar.appearance().shadowImage = UIImage()
+//
+//        return true
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

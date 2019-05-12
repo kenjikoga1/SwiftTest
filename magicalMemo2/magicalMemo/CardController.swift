@@ -57,9 +57,10 @@ class CardController: UIViewController,UITextViewDelegate {
         }
         //index番号を取得
         let indexNumber = memos.index(of: topMemo!)
-        print(indexNumber!)
         //cardNumberにindex番号を入れる
-        cardNumber = indexNumber ?? 0
+        cardNumber = indexNumber!
+        print(cardNumber)
+
         
         memoTextView.layer.cornerRadius = 10
         memoTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
@@ -104,7 +105,7 @@ class CardController: UIViewController,UITextViewDelegate {
             if card.center.x < 75{
                 reset()
                 
-//                realmSet()
+                realmSet()
                 cardNumber += 1
                 if cardNumber >= memos.count{
                     cardNumber = 0
@@ -113,7 +114,7 @@ class CardController: UIViewController,UITextViewDelegate {
             }else if card.center.x > view.frame.width - 75{
                 reset()
                 
-//                realmSet()
+                realmSet()
                 cardNumber -= 1
                 if cardNumber >= memos.count{
                     cardNumber = memos.count - 1
@@ -243,18 +244,18 @@ class CardController: UIViewController,UITextViewDelegate {
         }
     }
     
-//    func realmSet() {
-//        let realm = try! Realm()
-//        let memos = realm.objects(Memos.self)
-//        let moveMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
-//        //memoTextをRealmに保存
-//        try! realm.write {
-//            titleTextField.text = moveMemo?.memoTitle
-//            memoTextView.text = moveMemo?.memoDetail
-//            abstTextView.text = moveMemo?.abstDetail
-//            figureTextView.text = moveMemo?.figureDetail
-//        }
-//    }
+    func realmSet() {
+        let realm = try! Realm()
+        memos = realm.objects(Memos.self)
+        let moveMemo = memos[cardNumber] as Memos
+        //memoTextをRealmに保存
+        try! realm.write {
+            titleTextField.text = moveMemo.memoTitle
+            memoTextView.text = moveMemo.memoDetail
+            abstTextView.text = moveMemo.abstDetail
+            figureTextView.text = moveMemo.figureDetail
+        }
+    }
     /*
     // MARK: - Navigation
 
