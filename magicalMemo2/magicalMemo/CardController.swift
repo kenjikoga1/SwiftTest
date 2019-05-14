@@ -85,12 +85,13 @@ class CardController: UIViewController,UITextViewDelegate {
 //        make.text = "create" + sDate
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        centerOfCard = memoCard.center
-    }
+
     
     func reset() {
-        memoCard.center = self.centerOfCard
+//        memoCard.center = self.centerOfCard
+        let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height
+
+        memoCard.center = CGPoint(x: view.frame.width / 2, y: (view.frame.height / 2) - 20)
         memoCard.transform = .identity
     }
     
