@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CardController: UIViewController,UITextViewDelegate {
+class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
 
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -37,6 +37,7 @@ class CardController: UIViewController,UITextViewDelegate {
         memoTextView.delegate = self
         abstTextView.delegate = self
         figureTextView.delegate = self
+        titleTextField.delegate = self
         
         setPlaceHolder()
         
@@ -210,20 +211,7 @@ class CardController: UIViewController,UITextViewDelegate {
             topMemo?.memoDetail = memoTextView.text
             topMemo?.abstDetail = abstTextView.text
             topMemo?.figureDetail = figureTextView.text
-            
-//            let count = memos.count
-//            let id: Int
-//            if (count == 0) {
-//                // 登録データが0件の場合
-//                all.id = 0
-//
-//            } else {
-//                // 登録データがある場合
-//                // IDは既存のID+1とします。
-//                // データを削除している場合、"id"が歯抜けの可能性がありますが、
-//                // 今回は考慮しません。
-//                all.id = all.id + 1
-//            }
+
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -265,6 +253,12 @@ class CardController: UIViewController,UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         setPlaceHolder()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        titleTextField.resignFirstResponder()
+        return true
+    }
+    
     
 //    func textViewDidChange(_ textView: UITextView) {
 //        setPlaceHolder()
@@ -316,22 +310,21 @@ class CardController: UIViewController,UITextViewDelegate {
         let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
         
-        print("テキストフィールドの下辺：\(txtLimit)")
-        print("キーボードの上辺：\(kbdLimit)")
         
         if txtLimit <= 170{
-//                        UIView.animate(withDuration: 100, animations: {
-//
-//                            let transform = CGAffineTransform(translationX: 0, y: myBoundSize.height / 3)
-//                            self.view.transform = transform},completion:nil)
+            UIView.animate(withDuration: 100, animations: {
+            let transform = CGAffineTransform(translationX: 0, y: -(myBoundSize.height / 3))
+            self.view.transform = transform},completion:nil)
             
-            scrollView.contentOffset.y = myBoundSize.height / 3
+//            scrollView.contentOffset.y = myBoundSize.height / 3
         }
         
     }
     
-    @objc func handleKeyboardWillHideNotification(notification: NSNotification) {
-        scrollView.contentOffset.y = 0
+    @objc func handleKeyboardWillHideNotification(_ notification: Notification?) {
+        let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
+                UIView.animate(withDuration: 100, animations:{
+                    self.view.transform = CGAffineTransform.identity},completion:nil)
     }
     
     @objc func commitButtonTapped() {

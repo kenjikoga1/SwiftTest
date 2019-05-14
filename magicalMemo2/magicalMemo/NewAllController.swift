@@ -137,9 +137,22 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
     }
     
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        titleTextField.resignFirstResponder()
+        return true
+    }
     
     @IBAction func saveBtn(_ sender: Any) {
-        
+        newSave()
+
+    }
+    
+    //textViewにdoneボタンを付ける
+    @objc func commitButtonTapped() {
+        self.view.endEditing(true)
+    }
+
+    func newSave() {
         let realm = try! Realm()
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
@@ -161,8 +174,6 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
                 memo.id = Memos.lastId()
             }
             
-            
-            
             memo.createTime = date
             
             memo.creatDay = sDate
@@ -171,29 +182,11 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
             memo.abstDetail = abstTextView.text ?? ""
             memo.figureDetail = figureTextView.text ?? ""
             
-//            // 登録件数を取得します。
-//            let count = memos.count
-//            // プライマリキーのIDが重複しないように設定します。
-//            if (count == 0) {
-//                // 登録データが0件の場合
-//                memo.id = 0
-//            } else {
-//                // 登録データがある場合
-//                // IDは既存のID+1とします。
-//                // データを削除している場合、"id"が歯抜けの可能性がありますが、
-//                // 今回は考慮しません。
-//                memo.id = cellNumber
-//            }
             realm.add(memo)
         }
         self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+        
     }
-    
-    //textViewにdoneボタンを付ける
-    @objc func commitButtonTapped() {
-        self.view.endEditing(true)
-    }
-
     
     //*********************** キーボード選択時に画面が上がる ***********************
 //    @objc func keyboardWillShow(_ notification: Notification?) {
