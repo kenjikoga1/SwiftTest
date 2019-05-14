@@ -12,7 +12,6 @@ import GoogleMobileAds
 
 class ViewController: UIViewController,GADBannerViewDelegate {
     
-    @IBOutlet weak var imageVIew: UIImageView!
     var table1: TableContainer1!
     var table2: TableContainer2!
     var table3: TableContainer3!

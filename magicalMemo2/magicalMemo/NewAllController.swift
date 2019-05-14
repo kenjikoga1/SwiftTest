@@ -47,7 +47,7 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         figureTextView.layer.cornerRadius = 10
         figureTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
 
-        
+        //Doneボタンの設定
         let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
         kbToolBar.barStyle = UIBarStyle.default  // スタイルを設定
         kbToolBar.sizeToFit()  // 画面幅に合わせてサイズを変更
@@ -62,24 +62,46 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
     }
     
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                // Viewの表示時にキーボード表示・非表示を監視するObserverを登録する
-        if(!isObserving) {
-            let notification = NotificationCenter.default
-            notification.addObserver(self,
-                                     selector: #selector(self.keyboardWillShow),
-                                     name: UIResponder.keyboardWillShowNotification,
-                                     object: nil)
-            
-            notification.addObserver(self,
-                                     selector: #selector(self.keyboardWillHide),
-                                     name: UIResponder.keyboardWillHideNotification,
-                                     object: nil)
-            isObserving = true
-        }
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector:
+            #selector(self.handleKeyBoardWillShowNotification),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        notificationCenter.addObserver(self,
+                                       selector:
+            #selector(self.handleKeyboardWillHideNotification),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+        
+//        // Viewの表示時にキーボード表示・非表示を監視するObserverを登録する
+//        if(!isObserving) { //トリガーが起動した場合にtrueになる
+//            let notification = NotificationCenter.default //Notificationを初期化
+//            notification.addObserver(self, //UIResponder.KeyboardWillが呼ばれたときに、#selectorの中身を起動
+//                                     selector: #selector(self.keyboardWillShow), //下記に作成のkeyboardWillShowメソッド
+//                                     name: UIResponder.keyboardWillShowNotification, //起動トリガーの内容
+//                                     object: nil)
+//
+//            notification.addObserver(self,
+//                                     selector: #selector(self.keyboardWillHide),
+//                                     name: UIResponder.keyboardWillHideNotification, //キーボード閉じた時
+//                                     object: nil)
+//            isObserving = true
+//        }
+    
     
     func textViewDidChange(_ textView: UITextView) {
         if memoTextView.text.isEmpty{
@@ -174,29 +196,53 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
 
     
     //*********************** キーボード選択時に画面が上がる ***********************
-    @objc func keyboardWillShow() {
-        // キーボード表示時の動作をここに記述する
-        // let rect = (notification?.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        // let duration:TimeInterval = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        UIView.animate(withDuration: 100, animations: {
-            let transform = CGAffineTransform(translationX: 0, y: -300)
-            self.view.transform = transform},completion:nil)
-    }
-    @objc func keyboardWillHide() {
-        // キーボード消滅時の動作をここに記述する
-        // let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
-        UIView.animate(withDuration: 100, animations:{
-            self.view.transform = CGAffineTransform.identity},completion:nil)
-    }
+//    @objc func keyboardWillShow(_ notification: Notification?) {
+//        // キーボード表示時の動作をここに記述する
+//
+//        // let duration:TimeInterval = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+//        UIView.animate(withDuration: 100, animations: {
+////            let rect = (notification?.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//            let transform = CGAffineTransform(translationX: 0, y: 300) //CGAffineTransform(translationX,y)で発動時移動 今回はUIViewを指定
+//            self.view.transform = transform},completion:nil)
+//    }
+//    @objc func keyboardWillHide() {
+//        // キーボード消滅時の動作をここに記述する
+//        // let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
+//        UIView.animate(withDuration: 100, animations:{
+//            self.view.transform = CGAffineTransform.identity},completion:nil)
+//    }
 //*********************** キーボード選択時に画面が上がる ***********************
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    var txtActiveView = UITextView()
+    //textViewのアクティブ状況を返す
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        txtActiveView = textView
+        return true
     }
-    */
-
+    
+    @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
+        let userInfo = notification.userInfo
+        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let myBoundSize: CGSize = UIScreen.main.bounds.size
+        
+        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
+        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        
+        
+        if txtLimit <= 170{
+//            UIView.animate(withDuration: 100, animations: {
+//
+////                let transform = CGAffineTransform(translationX: 0, y: 300)
+//                self.view.transform = transform},completion:nil)
+            
+            scrollView.contentOffset.y = myBoundSize.height / 3
+        }
+        
+    }
+    
+    @objc func handleKeyboardWillHideNotification(notification: NSNotification) {
+        scrollView.contentOffset.y = 0
+    }
+    
 }

@@ -12,6 +12,7 @@ import RealmSwift
 class CardController: UIViewController,UITextViewDelegate {
 
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var memoCard: UIView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
@@ -83,6 +84,44 @@ class CardController: UIViewController,UITextViewDelegate {
         format.dateFormat = "yyyy/MM/dd H:mm"
         let sDate = format.string(from: date)
         make.text = "create" + sDate
+        
+        //Doneボタンの設定
+        let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        kbToolBar.barStyle = UIBarStyle.default  // スタイルを設定
+        kbToolBar.sizeToFit()  // 画面幅に合わせてサイズを変更
+        // スペーサー
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        // 閉じるボタン
+        let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.commitButtonTapped))
+        kbToolBar.items = [spacer, commitButton]
+        memoTextView.inputAccessoryView = kbToolBar
+        abstTextView.inputAccessoryView = kbToolBar
+        figureTextView.inputAccessoryView = kbToolBar
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector:
+            #selector(self.handleKeyBoardWillShowNotification),
+                                       name: UIResponder.keyboardWillShowNotification,
+                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector:
+            #selector(self.handleKeyboardWillHideNotification),
+                                       name: UIResponder.keyboardWillHideNotification,
+                                       object: nil)
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
 
@@ -260,6 +299,43 @@ class CardController: UIViewController,UITextViewDelegate {
             abstTextView.text = moveMemo.abstDetail
             figureTextView.text = moveMemo.figureDetail
         }
+    }
+    
+    var txtActiveView = UITextView()
+    //textViewのアクティブ状況を返す
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        txtActiveView = textView
+        return true
+    }
+    
+    @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
+        let userInfo = notification.userInfo
+        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let myBoundSize: CGSize = UIScreen.main.bounds.size
+        
+        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
+        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        
+        print("テキストフィールドの下辺：\(txtLimit)")
+        print("キーボードの上辺：\(kbdLimit)")
+        
+        if txtLimit <= 170{
+//                        UIView.animate(withDuration: 100, animations: {
+//
+//                            let transform = CGAffineTransform(translationX: 0, y: myBoundSize.height / 3)
+//                            self.view.transform = transform},completion:nil)
+            
+            scrollView.contentOffset.y = myBoundSize.height / 3
+        }
+        
+    }
+    
+    @objc func handleKeyboardWillHideNotification(notification: NSNotification) {
+        scrollView.contentOffset.y = 0
+    }
+    
+    @objc func commitButtonTapped() {
+        self.view.endEditing(true)
     }
     /*
     // MARK: - Navigation
