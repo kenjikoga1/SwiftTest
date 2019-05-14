@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import GoogleMobileAds
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,GADBannerViewDelegate {
     
     @IBOutlet weak var imageVIew: UIImageView!
     var table1: TableContainer1!
@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var updateLabel: UIButton!
     @IBOutlet weak var favoriteLabel: UIButton!
     
+    @IBOutlet weak var adBannerView: GADBannerView!
     
     var memos: Results<Memos>!
     var cellNumber = 0
@@ -48,19 +49,33 @@ class ViewController: UIViewController {
         container2.isHidden = true
         container3.isHidden = true
         
-        //広告設定
-        let gadBannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        gadBannerView.center = self.view.center
-        gadBannerView.adUnitID = "ca-app-pub-1331496561960773/5194326329" // ここにAdMobで取得したIDを設定する
-        gadBannerView.rootViewController = self;
+        adBannerView.adUnitID = "ca-app-pub-1331496561960773/5194326329"
+        adBannerView.rootViewController = self
+        adBannerView.delegate = self
+        adBannerView.load(GADRequest())
         
-        let request = GADRequest();
-        request.testDevices = [ "kGADSimulatorID" ] // リクエストをロードする前にテストデバイスを登録する
-        gadBannerView.load(request)
-        
-        self.view.addSubview(gadBannerView)
- 
     }
+    
+//    // 最下部に表示
+//    override func viewDidLayoutSubviews(){
+//        //  広告インスタンス作成
+//        var admobView = GADBannerView()
+//        admobView = GADBannerView(adSize:kGADAdSizeBanner)
+//
+//        //  広告位置設定
+//        let safeArea = self.view.safeAreaInsets.bottom
+//        admobView.frame.origin = CGPoint(x:0, y:self.view.frame.size.height - safeArea - admobView.frame.height)
+//        admobView.frame.size = CGSize(width:self.view.frame.width, height:admobView.frame.height)
+//
+//        //  広告ID設定
+//        admobView.adUnitID = "ca-app-pub-1331496561960773/5194326329"
+//
+//        //  広告表示
+//        admobView.rootViewController = self
+//        admobView.load(GADRequest())
+//        self.view.addSubview(admobView)
+//
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
 
@@ -107,7 +122,7 @@ class ViewController: UIViewController {
         
         container1.isHidden = true
         container2.isHidden = true
-        
+        container3.isHidden = false
         
 //
 //        let t1 = ViewController.self as! TableContainer1

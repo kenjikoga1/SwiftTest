@@ -77,12 +77,12 @@ class CardController: UIViewController,UITextViewDelegate {
         self.memoCard.layer.shadowColor = UIColor.black.cgColor
         self.memoCard.layer.shadowOffset = CGSize(width: 0, height: 5)
         
-//        var date = Date()
-//        date = topMemo!.createTime
-//        let format = DateFormatter()
-//        format.dateFormat = "yyyy/MM/dd H:mm"
-//        let sDate = format.string(from: date)
-//        make.text = "create" + sDate
+        var date = Date()
+        date = topMemo!.createTime
+        let format = DateFormatter()
+        format.dateFormat = "yyyy/MM/dd H:mm"
+        let sDate = format.string(from: date)
+        make.text = "create" + sDate
     }
     
 
