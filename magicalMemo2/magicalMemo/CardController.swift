@@ -85,6 +85,10 @@ class CardController: UIViewController,UITextViewDelegate {
 //        make.text = "create" + sDate
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        centerOfCard = memoCard.center
+    }
+    
     func reset() {
         memoCard.center = self.centerOfCard
         memoCard.transform = .identity
