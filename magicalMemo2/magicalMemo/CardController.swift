@@ -239,6 +239,16 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
             topMemo?.abstDetail = abstTextView.text
             topMemo?.figureDetail = figureTextView.text
         }
+        
+        let title = "保存しました"
+        let message = "新規メモを作成します。"
+        let oeText = "OK"
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okayButton = UIAlertAction(title: oeText, style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(okayButton)
+        present(alert, animated: true, completion: nil)
+        
     }
     
     @IBAction func trash(_ sender: Any) {

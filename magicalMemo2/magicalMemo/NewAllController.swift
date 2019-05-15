@@ -86,22 +86,6 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         notificationCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         notificationCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-        
-//        // Viewの表示時にキーボード表示・非表示を監視するObserverを登録する
-//        if(!isObserving) { //トリガーが起動した場合にtrueになる
-//            let notification = NotificationCenter.default //Notificationを初期化
-//            notification.addObserver(self, //UIResponder.KeyboardWillが呼ばれたときに、#selectorの中身を起動
-//                                     selector: #selector(self.keyboardWillShow), //下記に作成のkeyboardWillShowメソッド
-//                                     name: UIResponder.keyboardWillShowNotification, //起動トリガーの内容
-//                                     object: nil)
-//
-//            notification.addObserver(self,
-//                                     selector: #selector(self.keyboardWillHide),
-//                                     name: UIResponder.keyboardWillHideNotification, //キーボード閉じた時
-//                                     object: nil)
-//            isObserving = true
-//        }
-    
     
     func textViewDidChange(_ textView: UITextView) {
         if memoTextView.text.isEmpty{
@@ -148,10 +132,21 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
     }
     @IBAction func add(_ sender: Any) {
         newSave()
+        
+        let title = "保存しました"
+        let message = "続けて新規メモを作成します。"
+        let oeText = "OK"
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okayButton = UIAlertAction(title: oeText, style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(okayButton)
+        present(alert, animated: true, completion: nil)
+
         titleTextField.text = ""
         memoTextView.text = ""
         abstTextView.text = ""
         figureTextView.text = ""
+        
     }
     
     //textViewにdoneボタンを付ける
