@@ -144,7 +144,14 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
     
     @IBAction func saveBtn(_ sender: Any) {
         newSave()
-
+        self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+    }
+    @IBAction func add(_ sender: Any) {
+        newSave()
+        titleTextField.text = ""
+        memoTextView.text = ""
+        abstTextView.text = ""
+        figureTextView.text = ""
     }
     
     //textViewにdoneボタンを付ける
@@ -184,7 +191,6 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
             
             realm.add(memo)
         }
-        self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
         
     }
     
