@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             FirebaseApp.configure()
             GADMobileAds.sharedInstance().start(completionHandler: nil)
             
-            GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544/1712485313")
+            GADMobileAds.sharedInstance().start()
             return true
     }
     

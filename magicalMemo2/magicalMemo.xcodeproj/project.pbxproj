@@ -13,7 +13,7 @@
 		8C5B66FF227BBF66004FF463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B66FD227BBF66004FF463 /* Main.storyboard */; };
 		8C5B6701227BBF67004FF463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B6700227BBF67004FF463 /* Assets.xcassets */; };
 		8C5B6704227BBF67004FF463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B6702227BBF67004FF463 /* LaunchScreen.storyboard */; };
-		8C80E9A7228BC898004359A8 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C80E9A6228BC898004359A8 /* GoogleService-Info (1).plist */; };
+		8C74D084228D9D33002E5B7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C74D083228D9D33002E5B7D /* GoogleService-Info.plist */; };
 		8CC22200228316B400DEFA14 /* TableContainer1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC221FF228316B400DEFA14 /* TableContainer1.swift */; };
 		8CC22202228316CA00DEFA14 /* TableContainer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC22201228316CA00DEFA14 /* TableContainer2.swift */; };
 		8CC22204228318FC00DEFA14 /* TableContainer3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC22203228318FC00DEFA14 /* TableContainer3.swift */; };
@@ -26,14 +26,14 @@
 
 /* Begin PBXFileReference section */
 		150EBF8D0C91512037FFFB88 /* Pods_magicalMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicalMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C5B66F6227BBF66004FF463 /* 3IDEAs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3IDEAs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C5B66F6227BBF66004FF463 /* magicalMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicalMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5B66F9227BBF66004FF463 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C5B66FB227BBF66004FF463 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C5B66FE227BBF66004FF463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C5B6700227BBF67004FF463 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C5B6703227BBF67004FF463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C5B6705227BBF67004FF463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C80E9A6228BC898004359A8 /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
+		8C74D083228D9D33002E5B7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Documents/appleDevelop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8CC221FF228316B400DEFA14 /* TableContainer1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContainer1.swift; sourceTree = "<group>"; };
 		8CC22201228316CA00DEFA14 /* TableContainer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContainer2.swift; sourceTree = "<group>"; };
 		8CC22203228318FC00DEFA14 /* TableContainer3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContainer3.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		8C5B66F7227BBF66004FF463 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C5B66F6227BBF66004FF463 /* 3IDEAs.app */,
+				8C5B66F6227BBF66004FF463 /* magicalMemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,7 +102,7 @@
 				8C5B6700227BBF67004FF463 /* Assets.xcassets */,
 				8C5B6702227BBF67004FF463 /* LaunchScreen.storyboard */,
 				8C5B6705227BBF67004FF463 /* Info.plist */,
-				8C80E9A6228BC898004359A8 /* GoogleService-Info (1).plist */,
+				8C74D083228D9D33002E5B7D /* GoogleService-Info.plist */,
 			);
 			path = magicalMemo;
 			sourceTree = "<group>";
@@ -134,7 +134,7 @@
 			);
 			name = magicalMemo;
 			productName = magicalMemo;
-			productReference = 8C5B66F6227BBF66004FF463 /* 3IDEAs.app */;
+			productReference = 8C5B66F6227BBF66004FF463 /* magicalMemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +177,7 @@
 			files = (
 				8C5B6704227BBF67004FF463 /* LaunchScreen.storyboard in Resources */,
 				8C5B6701227BBF67004FF463 /* Assets.xcassets in Resources */,
-				8C80E9A7228BC898004359A8 /* GoogleService-Info (1).plist in Resources */,
+				8C74D084228D9D33002E5B7D /* GoogleService-Info.plist in Resources */,
 				8CC90DCA227EA8E600CE1A48 /* RoundCell.xib in Resources */,
 				8C5B66FF227BBF66004FF463 /* Main.storyboard in Resources */,
 			);
@@ -312,6 +312,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -373,6 +374,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -407,7 +409,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.tensais.3IDEAs;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME)";
-				PRODUCT_NAME = 3IDEAs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -428,7 +430,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.tensais.3IDEAs;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME)";
-				PRODUCT_NAME = 3IDEAs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

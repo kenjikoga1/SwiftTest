@@ -48,7 +48,7 @@ class ViewController: UIViewController,GADBannerViewDelegate {
         container2.isHidden = true
         container3.isHidden = true
         
-        adBannerView.adUnitID = "ca-app-pub-1331496561960773/5194326329"
+        adBannerView.adUnitID = "ca-app-pub-1331496561960773/3449977736"
         adBannerView.rootViewController = self
         adBannerView.delegate = self
         adBannerView.load(GADRequest())
