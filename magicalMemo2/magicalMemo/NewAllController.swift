@@ -59,8 +59,8 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         memoTextView.inputAccessoryView = kbToolBar
         abstTextView.inputAccessoryView = kbToolBar
         figureTextView.inputAccessoryView = kbToolBar
+        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -79,15 +79,19 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
 
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//
+//        let notificationCenter = NotificationCenter.default
+//        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+//        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
     
     func textViewDidChange(_ textView: UITextView) {
+        if textView == abstTextView{
+            
+        }
+        
         if memoTextView.text.isEmpty{
             self.saveButton.isEnabled = false
             memoPlace.isHidden = false
@@ -109,8 +113,6 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         }
     }
     
-
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (self.memoTextView.isFirstResponder) {
             self.memoTextView.resignFirstResponder()
@@ -120,7 +122,6 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         }
     }
     
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
         return true
@@ -169,7 +170,6 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
             //日付をStringに変換する
             let sDate = format.string(from: date)
             
-            
             if memo.id <= Memos.lastId(){
                 memo.id = Memos.lastId() + 1
             }else{
@@ -177,7 +177,6 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
             }
             
             memo.createTime = date
-            
             memo.creatDay = sDate
             memo.memoTitle = titleTextField.text ?? ""
             memo.memoDetail = memoTextView.text ?? ""
@@ -222,7 +221,6 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         
         let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-        
         
         if txtLimit <= 170{
 //            UIView.animate(withDuration: 100, animations: {

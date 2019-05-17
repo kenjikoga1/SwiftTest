@@ -69,10 +69,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igQ-Ic-jAj">
-                                <rect key="frame" x="0.0" y="186.5" width="414" height="35.5"/>
+                                <rect key="frame" x="0.0" y="176.5" width="414" height="45.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1T-uF-XYo">
-                                        <rect key="frame" x="0.0" y="0.0" width="141" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="141" height="45.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="MAKE">
@@ -83,7 +83,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edt-Ta-dIS">
-                                        <rect key="frame" x="277.5" y="0.0" width="136.5" height="35.5"/>
+                                        <rect key="frame" x="277.5" y="0.0" width="136.5" height="45.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="PAST">
@@ -94,7 +94,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caH-K2-OCW">
-                                        <rect key="frame" x="141" y="0.0" width="136.5" height="35.5"/>
+                                        <rect key="frame" x="141" y="0.0" width="136.5" height="45.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="UPDATE">
@@ -122,7 +122,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Phu-MD-Hrj" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="-316.5" width="414" height="503"/>
+                                <rect key="frame" x="0.0" y="-326.5" width="414" height="503"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -141,7 +141,7 @@
                             <constraint firstItem="tMn-JG-vL0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YeD-gi-X8J"/>
                             <constraint firstItem="Phu-MD-Hrj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ca7-cX-yfx"/>
                             <constraint firstItem="Phu-MD-Hrj" firstAttribute="height" secondItem="O7O-Zr-XVO" secondAttribute="height" id="ekv-xZ-YOz"/>
-                            <constraint firstItem="igQ-Ic-jAj" firstAttribute="height" secondItem="O7O-Zr-XVO" secondAttribute="height" multiplier="0.07" id="omU-3n-Kgo"/>
+                            <constraint firstItem="igQ-Ic-jAj" firstAttribute="height" secondItem="O7O-Zr-XVO" secondAttribute="height" multiplier="0.09" id="omU-3n-Kgo"/>
                             <constraint firstItem="igQ-Ic-jAj" firstAttribute="width" secondItem="O7O-Zr-XVO" secondAttribute="width" id="vdK-GH-qpl"/>
                             <constraint firstItem="igQ-Ic-jAj" firstAttribute="top" secondItem="Phu-MD-Hrj" secondAttribute="bottom" id="wBi-jZ-EiN"/>
                         </constraints>
