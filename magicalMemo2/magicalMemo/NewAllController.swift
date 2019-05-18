@@ -79,6 +79,8 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
 
     }
     
+    
+    
 //    override func viewDidDisappear(_ animated: Bool) {
 //        super.viewDidDisappear(animated)
 //
@@ -88,9 +90,6 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
 //    }
     
     func textViewDidChange(_ textView: UITextView) {
-        if textView == abstTextView{
-            
-        }
         
         if memoTextView.text.isEmpty{
             self.saveButton.isEnabled = false
@@ -216,8 +215,11 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
     
     @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
         let userInfo = notification.userInfo
+    //キーボードのフレーム取得
         let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
         let myBoundSize: CGSize = UIScreen.main.bounds.size
+//        let zureY = CGRectEdge.maxYEdge(UITextView)
         
         let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height

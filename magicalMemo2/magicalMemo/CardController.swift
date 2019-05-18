@@ -117,13 +117,15 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+
+    
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//
+//        let notificationCenter = NotificationCenter.default
+//        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+//        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
     
 
     
@@ -183,7 +185,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         
         let realm = try! Realm()
         
-        let memos = realm.objects(Memos.self)
+//        let memos = realm.objects(Memos.self)
         let topMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
         
         
@@ -219,7 +221,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     @IBAction func add(_ sender: Any) {
         let realm = try! Realm()
         //TitleをRealmに保存
-        let memos = realm.objects(Memos.self)
+//        let memos = realm.objects(Memos.self)
         let topMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
         
         //memoTextをRealmに保存
@@ -253,7 +255,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     
     @IBAction func trash(_ sender: Any) {
         let realm = try! Realm()
-        let memos = realm.objects(Memos.self)
+//        let memos = realm.objects(Memos.self)
         try! realm.write {
             realm.delete(realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)!)
             self.navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
