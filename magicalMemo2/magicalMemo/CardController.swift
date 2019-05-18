@@ -30,6 +30,9 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     var cellNumber = 0
     var cardNumber = 0
     
+    // キーボード表示時の画面スクロールフラグ
+    var isFirstText = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         centerOfCard = memoCard.center
@@ -311,10 +314,27 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     //textViewのアクティブ状況を返す
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         txtActiveView = textView
+        
+        // キーボードの表示時画面を上にあげたい。
+        // ただし事実TextViewの場合はあげると入力項目が隠れるのであげない
+        // そのためにここでどのTextViewかを判定しておく
+        if (textView.tag == 1) {
+            isFirstText = true
+        } else {
+            isFirstText = false
+        }
+        
         return true
     }
+
     
     @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
+        
+        // タップが最初のテキストビューなら終了(表示領域が見えなくなってしまうので)
+        if (isFirstText == true) {
+            return
+        }
+        
         let userInfo = notification.userInfo
         let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let myBoundSize: CGSize = UIScreen.main.bounds.size
