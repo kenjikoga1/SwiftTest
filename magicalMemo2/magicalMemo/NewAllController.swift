@@ -30,6 +30,8 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
     var cellNumber = 0
     
     var isObserving = false
+    var isFirstText = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,27 +58,42 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         // 閉じるボタン
         let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.commitButtonTapped))
         kbToolBar.items = [spacer, commitButton]
+        titleTextField.inputAccessoryView = kbToolBar
         memoTextView.inputAccessoryView = kbToolBar
         abstTextView.inputAccessoryView = kbToolBar
         figureTextView.inputAccessoryView = kbToolBar
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        let notificationCenter = NotificationCenter.default
+//        notificationCenter.addObserver(self,
+//                                       selector:
+//            #selector(self.handleKeyBoardWillShowNotification),
+//            name: UIResponder.keyboardWillShowNotification,
+//            object: nil)
+//        notificationCenter.addObserver(self,
+//                                       selector:
+//            #selector(self.handleKeyboardWillHideNotification),
+//            name: UIResponder.keyboardWillHideNotification,
+//            object: nil)
+//
+//    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector:
             #selector(self.handleKeyBoardWillShowNotification),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil)
+                                       name: UIResponder.keyboardWillShowNotification,
+                                       object: nil)
         notificationCenter.addObserver(self,
                                        selector:
             #selector(self.handleKeyboardWillHideNotification),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil)
-
+                                       name: UIResponder.keyboardWillHideNotification,
+                                       object: nil)
     }
     
     
@@ -112,7 +129,7 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {        
         if (self.memoTextView.isFirstResponder) {
             self.memoTextView.resignFirstResponder()
         }
@@ -206,32 +223,40 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
 //*********************** キーボード選択時に画面が上がる ***********************
     
     
-    var txtActiveView = UITextView()
+//    var txtActiveView = UITextView()
     //textViewのアクティブ状況を返す
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        txtActiveView = textView
+//        txtActiveView = textView
+        if textView.tag == 1{
+            isFirstText = true
+        }else{
+            isFirstText = false
+        }
+        
         return true
     }
     
     @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
-        let userInfo = notification.userInfo
-    //キーボードのフレーム取得
-        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        
+//        let userInfo = notification.userInfo
+//    //キーボードのフレーム取得
+//        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        if isFirstText == true{
+            return
+        }
         let myBoundSize: CGSize = UIScreen.main.bounds.size
 //        let zureY = CGRectEdge.maxYEdge(UITextView)
         
-        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
-        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-        
-        if txtLimit <= 170{
+//        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
+//        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+//
+//        if txtLimit <= 170{
 //            UIView.animate(withDuration: 100, animations: {
 //
 ////                let transform = CGAffineTransform(translationX: 0, y: 300)
 //                self.view.transform = transform},completion:nil)
             
             scrollView.contentOffset.y = myBoundSize.height / 3
-        }
+//        }
         
     }
     

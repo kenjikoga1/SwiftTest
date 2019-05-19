@@ -30,6 +30,8 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     var cellNumber = 0
     var cardNumber = 0
     
+    var isFirstText = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         centerOfCard = memoCard.center
@@ -40,12 +42,6 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         titleTextField.delegate = self
         
         setPlaceHolder()
-        
-        //        let memo = Memos()
-        //        memos = realm.objects(Memos.self).filter("id")
-        //        print(memos)
-        //        let topMemo = memos[cellNumber] as Memos
-        //memoTextをRealmに保存
         
         let realm = try! Realm()
         let memos = realm.objects(Memos.self)
@@ -95,43 +91,35 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         // 閉じるボタン
         let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.commitButtonTapped))
         kbToolBar.items = [spacer, commitButton]
+        titleTextField.inputAccessoryView = kbToolBar
         memoTextView.inputAccessoryView = kbToolBar
         abstTextView.inputAccessoryView = kbToolBar
         figureTextView.inputAccessoryView = kbToolBar
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self,
-                                       selector:
-            #selector(self.handleKeyBoardWillShowNotification),
-                                       name: UIResponder.keyboardWillShowNotification,
-                                       object: nil)
-        notificationCenter.addObserver(self,
-                                       selector:
-            #selector(self.handleKeyboardWillHideNotification),
-                                       name: UIResponder.keyboardWillHideNotification,
-                                       object: nil)
-        
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        setPlaceHolder()
+            let notificationCenter = NotificationCenter.default
+            notificationCenter.addObserver(self,
+                                           selector:
+                #selector(self.handleKeyBoardWillShowNotification),
+                                           name: UIResponder.keyboardWillShowNotification,
+                                           object: nil)
+            notificationCenter.addObserver(self,
+                                           selector:
+                #selector(self.handleKeyboardWillHideNotification),
+                                           name: UIResponder.keyboardWillHideNotification,
+                                           object: nil)
     }
     
-
-    
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidDisappear(animated)
-//
-//        let notificationCenter = NotificationCenter.default
-//        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-//        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-    
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        titleTextField.resignFirstResponder()
+        return true
+    }
     
     func reset() {
 //        memoCard.center = self.centerOfCard
-        let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height
+//        let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height
 
         memoCard.center = CGPoint(x: view.frame.width / 2, y: (view.frame.height / 2) - 20)
         memoCard.transform = .identity
@@ -178,22 +166,12 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         }
     }
     
-    
-
-    
     @IBAction func saveBtn(_ sender: Any) {
         
         let realm = try! Realm()
         
 //        let memos = realm.objects(Memos.self)
         let topMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
-        
-        
-        
-//        //TitleをRealmに保存
-//        let memo = Memos()
-//        memos = realm.objects(Memos.self)
-//        let topMemo = memos[cellNumber] as Memos
         
         //memoTextをRealmに保存
         try! realm.write {
@@ -262,16 +240,6 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         }
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        setPlaceHolder()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        titleTextField.resignFirstResponder()
-        return true
-    }
-    
-    
 //    func textViewDidChange(_ textView: UITextView) {
 //        setPlaceHolder()
 //    }
@@ -307,29 +275,27 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         }
     }
     
-    var txtActiveView = UITextView()
     //textViewのアクティブ状況を返す
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        txtActiveView = textView
+
+        if textView.tag == 1{
+            isFirstText = true
+        }else{
+            isFirstText = false
+        }
         return true
     }
     
     @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
-        let userInfo = notification.userInfo
-        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        if isFirstText == true {
+            return
+        }
+
         let myBoundSize: CGSize = UIScreen.main.bounds.size
-        
-        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
-        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-        
-        
-        if txtLimit <= 170{
+
             UIView.animate(withDuration: 100, animations: {
             let transform = CGAffineTransform(translationX: 0, y: -(myBoundSize.height / 3))
             self.view.transform = transform},completion:nil)
-            
-//            scrollView.contentOffset.y = myBoundSize.height / 3
-        }
         
     }
     
