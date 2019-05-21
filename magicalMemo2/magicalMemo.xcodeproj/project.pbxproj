@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09C05432A16D7C1F305EBF03 /* Pods_magicalMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150EBF8D0C91512037FFFB88 /* Pods_magicalMemo.framework */; };
+		8C1AA4CD2293722000D6BED4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C1AA4CF2293722000D6BED4 /* Localizable.strings */; };
 		8C5B66FA227BBF66004FF463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B66F9227BBF66004FF463 /* AppDelegate.swift */; };
 		8C5B66FC227BBF66004FF463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B66FB227BBF66004FF463 /* ViewController.swift */; };
 		8C5B66FF227BBF66004FF463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B66FD227BBF66004FF463 /* Main.storyboard */; };
@@ -26,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		150EBF8D0C91512037FFFB88 /* Pods_magicalMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magicalMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C1AA4C92293719900D6BED4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		8C1AA4CA2293719A00D6BED4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8C1AA4CE2293722000D6BED4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8C1AA4D02293722A00D6BED4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8C5B66F6227BBF66004FF463 /* magicalMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magicalMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5B66F9227BBF66004FF463 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C5B66FB227BBF66004FF463 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,12 +75,14 @@
 		8C5B66ED227BBF66004FF463 = {
 			isa = PBXGroup;
 			children = (
+				8C1AA4CF2293722000D6BED4 /* Localizable.strings */,
 				8C5B66F8227BBF66004FF463 /* magicalMemo */,
 				8C5B66F7227BBF66004FF463 /* Products */,
 				031D18E1D13AE2A7C244CBBA /* Pods */,
 				BAC7A40F60FA2B04816A9B44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 0;
 		};
 		8C5B66F7227BBF66004FF463 /* Products */ = {
 			isa = PBXGroup;
@@ -159,6 +166,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 8C5B66ED227BBF66004FF463;
 			productRefGroup = 8C5B66F7227BBF66004FF463 /* Products */;
@@ -176,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C5B6704227BBF67004FF463 /* LaunchScreen.storyboard in Resources */,
+				8C1AA4CD2293722000D6BED4 /* Localizable.strings in Resources */,
 				8C5B6701227BBF67004FF463 /* Assets.xcassets in Resources */,
 				8C74D084228D9D33002E5B7D /* GoogleService-Info.plist in Resources */,
 				8CC90DCA227EA8E600CE1A48 /* RoundCell.xib in Resources */,
@@ -258,10 +267,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8C1AA4CF2293722000D6BED4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C1AA4CE2293722000D6BED4 /* ja */,
+				8C1AA4D02293722A00D6BED4 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		8C5B66FD227BBF66004FF463 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8C5B66FE227BBF66004FF463 /* Base */,
+				8C1AA4C92293719900D6BED4 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -270,6 +289,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8C5B6703227BBF67004FF463 /* Base */,
+				8C1AA4CA2293719A00D6BED4 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -281,6 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -343,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
