@@ -16,6 +16,7 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
     
     var memos: Results<Memos>!
     var cellNumber = 0
+    var numberCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +26,13 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
         tableView.register(UINib(nibName: "RoundCell", bundle: nil), forCellReuseIdentifier: "RoundCell")
         
         let realm = try! Realm()
-        memos = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
+        memos = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)        
         tableView.reloadData()
         //        topView.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
-        
+        if memos.count == 0{
+            numberCount = 0
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +40,9 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
         let realm = try! Realm()
         memos = realm.objects(Memos.self).sorted(byKeyPath: "createTime", ascending: false)
         tableView.reloadData()
+        if memos.count == 0{
+            numberCount = 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,8 +52,19 @@ class TableContainer1: UIViewController,UITableViewDataSource,UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoundCell", for: indexPath) as! RoundCell
         //Realmのデータを読み込む
+        if numberCount == 0{
+            cell.uploadDayLabel.text = "memo.updateDay"
+            cell.createDayLabel.text = "memo.creatDay"
+            cell.titleLabel.text = "memo.memoTitle"
+            cell.memoLabel.text = "F: " + "memo.memoDetail"
+            cell.abstLabel.text = "A: " + "memo.abstDetail"
+            cell.figureLabel.text = "D: " + "memo.figureDetail"
+            tableView.reloadData()
+        }
+        
         let realm = try! Realm()
         let memo = memos[indexPath.row]
+ 
         //各Labelに保存内容を反映 indexPathでわける
         cell.uploadDayLabel.text = memo.updateDay
         cell.createDayLabel.text = memo.creatDay
