@@ -289,13 +289,13 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
         if isFirstText == true {
             return
-        }
-
-        let myBoundSize: CGSize = UIScreen.main.bounds.size
-
+        }else{
+            let myBoundSize: CGSize = UIScreen.main.bounds.size
+            
             UIView.animate(withDuration: 100, animations: {
-            let transform = CGAffineTransform(translationX: 0, y: -(myBoundSize.height / 3))
-            self.view.transform = transform},completion:nil)
+                let transform = CGAffineTransform(translationX: 0, y: -(myBoundSize.height / 3))
+                self.view.transform = transform},completion:nil)
+        }
         
     }
     
