@@ -55,6 +55,8 @@ class ViewController: UIViewController,GADBannerViewDelegate {
         
     }
     
+
+    
 //    // 最下部に表示
 //    override func viewDidLayoutSubviews(){
 //        //  広告インスタンス作成
@@ -77,10 +79,13 @@ class ViewController: UIViewController,GADBannerViewDelegate {
 //    }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        if makeLabel.isSelected{
+            makeLabel.backgroundColor = UIColor.gray
+        }
     }
 
     @IBAction func sortMakeDay(_ sender: Any) {
+        
         table1.reloadTable()
         table2.reloadTable()
         table3.reloadTable()
