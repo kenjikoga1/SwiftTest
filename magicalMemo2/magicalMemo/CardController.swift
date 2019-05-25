@@ -29,6 +29,10 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     var cellNumber = 0
     var cardNumber = 0
     
+<<<<<<< HEAD
+=======
+    // キーボード表示時の画面スクロールフラグ
+>>>>>>> 3b459c933f2adfb4f0009207dc25ee15a0b91861
     var isFirstText = false
     
     override func viewDidLoad() {
@@ -290,7 +294,62 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         }
     }
     
+<<<<<<< HEAD
 
+=======
+    var txtActiveView = UITextView()
+    //textViewのアクティブ状況を返す
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        txtActiveView = textView
+        
+        // キーボードの表示時画面を上にあげたい。
+        // ただし事実TextViewの場合はあげると入力項目が隠れるのであげない
+        // そのためにここでどのTextViewかを判定しておく
+        if (textView.tag == 1) {
+            isFirstText = true
+        } else {
+            isFirstText = false
+        }
+        
+        return true
+    }
+
+    
+    @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
+        
+        // タップが最初のテキストビューなら終了(表示領域が見えなくなってしまうので)
+        if (isFirstText == true) {
+            return
+        }
+        
+        let userInfo = notification.userInfo
+        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let myBoundSize: CGSize = UIScreen.main.bounds.size
+        
+        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
+        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        
+        
+        if txtLimit <= 170{
+            UIView.animate(withDuration: 100, animations: {
+            let transform = CGAffineTransform(translationX: 0, y: -(myBoundSize.height / 3))
+            self.view.transform = transform},completion:nil)
+            
+//            scrollView.contentOffset.y = myBoundSize.height / 3
+        }
+        
+    }
+    
+    @objc func handleKeyboardWillHideNotification(_ notification: Notification?) {
+        let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
+                UIView.animate(withDuration: 100, animations:{
+                    self.view.transform = CGAffineTransform.identity},completion:nil)
+    }
+    
+    @objc func commitButtonTapped() {
+        self.view.endEditing(true)
+    }
+>>>>>>> 3b459c933f2adfb4f0009207dc25ee15a0b91861
     /*
     // MARK: - Navigation
 
