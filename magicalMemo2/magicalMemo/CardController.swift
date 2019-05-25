@@ -318,28 +318,14 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
 
     
     @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
-        
-        // タップが最初のテキストビューなら終了(表示領域が見えなくなってしまうので)
         if (isFirstText == true) {
             return
         }
-//
-//        let userInfo = notification.userInfo
-//        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+
         let myBoundSize: CGSize = UIScreen.main.bounds.size
-//
-//        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
-//        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-//
-        
-//        if txtLimit <= 170{
             UIView.animate(withDuration: 100, animations: {
             let transform = CGAffineTransform(translationX: 0, y: -(myBoundSize.height / 3))
             self.view.transform = transform},completion:nil)
-            
-//            scrollView.contentOffset.y = myBoundSize.height / 3
-//        }
-        
     }
     
     @objc func handleKeyboardWillHideNotification(_ notification: Notification?) {

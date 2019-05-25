@@ -189,23 +189,7 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         
     }
     
-    //*********************** キーボード選択時に画面が上がる ***********************
-//    @objc func keyboardWillShow(_ notification: Notification?) {
-//        // キーボード表示時の動作をここに記述する
-//
-//        // let duration:TimeInterval = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-//        UIView.animate(withDuration: 100, animations: {
-////            let rect = (notification?.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-//            let transform = CGAffineTransform(translationX: 0, y: 300) //CGAffineTransform(translationX,y)で発動時移動 今回はUIViewを指定
-//            self.view.transform = transform},completion:nil)
-//    }
-//    @objc func keyboardWillHide() {
-//        // キーボード消滅時の動作をここに記述する
-//        // let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
-//        UIView.animate(withDuration: 100, animations:{
-//            self.view.transform = CGAffineTransform.identity},completion:nil)
-//    }
-//*********************** キーボード選択時に画面が上がる ***********************
+
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if (textView.tag == 1) {
@@ -213,29 +197,14 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         } else {
             isFirstText = false
         }
-        
         return true
     }
     @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
         if (isFirstText == true) {
             return
         }
-        
         let myBoundSize: CGSize = UIScreen.main.bounds.size
-//        let zureY = CGRectEdge.maxYEdge(UITextView)
-//
-//        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
-//        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-//
-//        if txtLimit <= 170{
-//            UIView.animate(withDuration: 100, animations: {
-//
-////                let transform = CGAffineTransform(translationX: 0, y: 300)
-//                self.view.transform = transform},completion:nil)
-            
-            scrollView.contentOffset.y = myBoundSize.height / 3
-//        }
-        
+        scrollView.contentOffset.y = myBoundSize.height / 3
     }
     
     @objc func handleKeyboardWillHideNotification(notification: NSNotification) {

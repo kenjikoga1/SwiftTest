@@ -690,13 +690,21 @@
                                             <constraint firstItem="dgj-8l-OBd" firstAttribute="top" secondItem="KXx-bW-Pmp" secondAttribute="top" constant="25" id="xhX-qA-J5g"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※表示の見方" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKS-xT-uc8">
+                                        <rect key="frame" x="173" y="463" width="68.5" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="KXx-bW-Pmp" secondAttribute="trailing" constant="30" id="GlZ-RS-A2f"/>
                                     <constraint firstItem="KDA-dE-qi2" firstAttribute="centerX" secondItem="MF6-x3-uky" secondAttribute="centerX" id="IQs-yo-i3X"/>
+                                    <constraint firstItem="UKS-xT-uc8" firstAttribute="top" secondItem="KXx-bW-Pmp" secondAttribute="bottom" constant="10" id="NBg-vh-Itj"/>
                                     <constraint firstItem="KXx-bW-Pmp" firstAttribute="centerX" secondItem="MF6-x3-uky" secondAttribute="centerX" id="O2M-Ji-VLO"/>
                                     <constraint firstAttribute="bottom" secondItem="KXx-bW-Pmp" secondAttribute="bottom" constant="50" id="ars-9d-bbO"/>
+                                    <constraint firstItem="UKS-xT-uc8" firstAttribute="centerX" secondItem="MF6-x3-uky" secondAttribute="centerX" id="dhT-L6-NmO"/>
                                     <constraint firstItem="KDA-dE-qi2" firstAttribute="centerY" secondItem="MF6-x3-uky" secondAttribute="centerY" id="nXu-Mk-eT9"/>
                                     <constraint firstItem="KXx-bW-Pmp" firstAttribute="leading" secondItem="MF6-x3-uky" secondAttribute="leading" constant="30" id="wLM-lw-D5p"/>
                                 </constraints>
@@ -819,6 +827,12 @@
                                             <constraint firstItem="dE9-xz-Top" firstAttribute="leading" secondItem="0jz-98-cKX" secondAttribute="leading" constant="83" id="rWZ-az-iw7"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※表示の見方" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXg-D7-8bs">
+                                        <rect key="frame" x="173" y="463" width="68.5" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -826,7 +840,9 @@
                                     <constraint firstItem="0jz-98-cKX" firstAttribute="centerX" secondItem="9G7-1X-SrG" secondAttribute="centerX" id="H3U-Jb-KTe"/>
                                     <constraint firstItem="2MR-p9-QMA" firstAttribute="centerY" secondItem="9G7-1X-SrG" secondAttribute="centerY" id="LWb-fe-sZ9"/>
                                     <constraint firstItem="0jz-98-cKX" firstAttribute="leading" secondItem="9G7-1X-SrG" secondAttribute="leading" constant="30" id="M7I-wv-MZK"/>
+                                    <constraint firstItem="cXg-D7-8bs" firstAttribute="centerX" secondItem="9G7-1X-SrG" secondAttribute="centerX" id="NUG-gj-ktR"/>
                                     <constraint firstAttribute="trailing" secondItem="0jz-98-cKX" secondAttribute="trailing" constant="30" id="nak-KW-KnP"/>
+                                    <constraint firstItem="cXg-D7-8bs" firstAttribute="top" secondItem="0jz-98-cKX" secondAttribute="bottom" constant="10" id="oho-BI-yMe"/>
                                     <constraint firstAttribute="bottom" secondItem="0jz-98-cKX" secondAttribute="bottom" constant="50" id="xOK-BF-pTd"/>
                                 </constraints>
                             </view>
@@ -948,14 +964,22 @@
                                             <constraint firstItem="nh4-dm-YCF" firstAttribute="top" secondItem="m71-F6-hv2" secondAttribute="top" constant="8" id="txc-gp-sGa"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※表示の見方" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBd-Ii-PbT">
+                                        <rect key="frame" x="173" y="463" width="68.5" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="m71-F6-hv2" firstAttribute="centerX" secondItem="oAn-SC-hrG" secondAttribute="centerX" id="5g9-pt-Grq"/>
+                                    <constraint firstItem="XBd-Ii-PbT" firstAttribute="centerX" secondItem="oAn-SC-hrG" secondAttribute="centerX" id="9cM-Dm-VV3"/>
                                     <constraint firstItem="gmD-JP-JOQ" firstAttribute="centerX" secondItem="oAn-SC-hrG" secondAttribute="centerX" id="9oh-tm-VJM"/>
                                     <constraint firstItem="m71-F6-hv2" firstAttribute="leading" secondItem="oAn-SC-hrG" secondAttribute="leading" constant="30" id="WyP-Fd-unZ"/>
                                     <constraint firstAttribute="trailing" secondItem="m71-F6-hv2" secondAttribute="trailing" constant="30" id="aaB-Us-oF7"/>
                                     <constraint firstAttribute="bottom" secondItem="m71-F6-hv2" secondAttribute="bottom" constant="50" id="jc9-sk-UP6"/>
+                                    <constraint firstItem="XBd-Ii-PbT" firstAttribute="top" secondItem="m71-F6-hv2" secondAttribute="bottom" constant="10" id="mpg-kY-fjx"/>
                                     <constraint firstItem="gmD-JP-JOQ" firstAttribute="centerY" secondItem="oAn-SC-hrG" secondAttribute="centerY" id="q96-OJ-vWH"/>
                                 </constraints>
                             </view>
