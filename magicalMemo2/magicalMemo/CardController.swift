@@ -63,7 +63,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         let indexNumber = memos.index(of: topMemo!)
         //cardNumberにindex番号を入れる
         cardNumber = indexNumber!
-        print(cardNumber)
+//        print(cardNumber)
 
         
         memoTextView.layer.cornerRadius = 10

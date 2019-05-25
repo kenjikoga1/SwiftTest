@@ -158,7 +158,7 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
 
     func newSave() {
         let realm = try! Realm()
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
         
         try! realm.write {
             let memo = Memos()
