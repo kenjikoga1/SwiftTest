@@ -244,20 +244,7 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
             return
         }
         let myBoundSize: CGSize = UIScreen.main.bounds.size
-//        let zureY = CGRectEdge.maxYEdge(UITextView)
-        
-//        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
-//        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-//
-//        if txtLimit <= 170{
-//            UIView.animate(withDuration: 100, animations: {
-//
-////                let transform = CGAffineTransform(translationX: 0, y: 300)
-//                self.view.transform = transform},completion:nil)
-            
             scrollView.contentOffset.y = myBoundSize.height / 3
-//        }
-        
     }
     
     @objc func handleKeyboardWillHideNotification(notification: NSNotification) {

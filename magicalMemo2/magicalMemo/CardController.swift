@@ -12,7 +12,6 @@ import RealmSwift
 class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
 
     
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var memoCard: UIView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
@@ -59,7 +58,6 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         cardNumber = indexNumber!
         print(cardNumber)
 
-        
         memoTextView.layer.cornerRadius = 10
         memoTextView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         abstTextView.layer.cornerRadius = 10
@@ -98,6 +96,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        
         setPlaceHolder()
             let notificationCenter = NotificationCenter.default
             notificationCenter.addObserver(self,
@@ -110,6 +109,40 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
                 #selector(self.handleKeyboardWillHideNotification),
                                            name: UIResponder.keyboardWillHideNotification,
                                            object: nil)
+        print("スタート")
+    }
+    
+    //textViewのアクティブ状況を返す
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if textView.tag == 1{
+            isFirstText = true
+        }else{
+            isFirstText = false
+        }
+        return true
+    }
+    
+    @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
+        //isFirstTextがtrueならreturn それ以外なら
+        if isFirstText == true {
+            return
+        }else{
+            let myBoundSize: CGSize = UIScreen.main.bounds.size
+            UIView.animate(withDuration: 100, animations: {
+                let transform = CGAffineTransform(translationX: 0, y: -(myBoundSize.height / 3))
+                self.view.transform = transform},completion:nil)
+        }
+    }
+    
+    @objc func handleKeyboardWillHideNotification(_ notification: Notification?) {
+        let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
+        UIView.animate(withDuration: 100, animations:{
+            self.view.transform = CGAffineTransform.identity},completion:nil)
+    }
+    
+    //キーボードDoneを押した時の挙動
+    @objc func commitButtonTapped() {
+        self.view.endEditing(true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -118,37 +151,27 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     }
     
     func reset() {
-//        memoCard.center = self.centerOfCard
-//        let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height
-
         memoCard.center = CGPoint(x: view.frame.width / 2, y: (view.frame.height / 2) - 20)
         memoCard.transform = .identity
     }
-    
     
     @IBAction func swip(_ sender: UIPanGestureRecognizer) {
         let card = sender.view!
         let point = sender.translation(in: view)
         
         card.center = CGPoint(x: card.center.x + point.x, y: card.center.y + point.y)
-        
-//        let xPointCard = card.center.x - view.center.x
-//        card.transform = CGAffineTransform(rotationAngle: xPointCard / (view.frame.width / 2) * -0.785)
         //ドラッグを離した時
         if sender.state == UIGestureRecognizer.State.ended{
 //            print(cardNumber,cellNumber)
             if card.center.x < 75{
                 reset()
-                
                 realmSet()
                 cardNumber += 1
                 if cardNumber >= memos.count{
                     cardNumber = 0
                 }
-//                print(cardNumber,cellNumber)
             }else if card.center.x > view.frame.width - 75{
                 reset()
-                
                 realmSet()
                 cardNumber -= 1
                 if cardNumber >= memos.count{
@@ -157,9 +180,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
                 if cardNumber <= -1{
                     cardNumber = memos.count - 1
                 }
-//                print(cardNumber,cellNumber)
             }
-            
             UIView.animate(withDuration: 0.2) {
                 self.reset()
             }
@@ -167,15 +188,11 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     }
     
     @IBAction func saveBtn(_ sender: Any) {
-        
         let realm = try! Realm()
-        
 //        let memos = realm.objects(Memos.self)
         let topMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
-        
         //memoTextをRealmに保存
         try! realm.write {
-            
             //現在の日付を取得
             let date:Date = Date()
             //日付のフォーマットを指定する。
@@ -185,13 +202,11 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
             let sDate = format.string(from: date)
             
             topMemo?.updateTime = date
-            
             topMemo?.updateDay = "up: " + sDate
             topMemo?.memoTitle = titleTextField.text ?? ""
             topMemo?.memoDetail = memoTextView.text
             topMemo?.abstDetail = abstTextView.text
             topMemo?.figureDetail = figureTextView.text
-
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -275,39 +290,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         }
     }
     
-    //textViewのアクティブ状況を返す
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
 
-        if textView.tag == 1{
-            isFirstText = true
-        }else{
-            isFirstText = false
-        }
-        return true
-    }
-    
-    @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
-        if isFirstText == true {
-            return
-        }else{
-            let myBoundSize: CGSize = UIScreen.main.bounds.size
-            
-            UIView.animate(withDuration: 100, animations: {
-                let transform = CGAffineTransform(translationX: 0, y: -(myBoundSize.height / 3))
-                self.view.transform = transform},completion:nil)
-        }
-        
-    }
-    
-    @objc func handleKeyboardWillHideNotification(_ notification: Notification?) {
-        let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
-                UIView.animate(withDuration: 100, animations:{
-                    self.view.transform = CGAffineTransform.identity},completion:nil)
-    }
-    
-    @objc func commitButtonTapped() {
-        self.view.endEditing(true)
-    }
     /*
     // MARK: - Navigation
 
