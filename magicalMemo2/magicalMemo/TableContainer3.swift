@@ -12,6 +12,9 @@ import RealmSwift
 class TableContainer3: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noDateView: UIView!
+    @IBOutlet weak var noDataBar: UIView!
+    @IBOutlet weak var noDataCreate: UIView!
     
     var memos: Results<Memos>!
     var cellNumber = 0
@@ -27,11 +30,24 @@ class TableContainer3: UIViewController,UITableViewDataSource,UITableViewDelegat
         memos = realm.objects(Memos.self)
         tableView.reloadData()
         
-        //        topView.backgroundColor = UIColor(red: 0/255, green: 190/255, blue: 255/255, alpha: 1)
+        noDateView.isHidden = true
+        
+        noDataBar.layer.cornerRadius = 5
+        self.noDataBar.layer.shadowOpacity = 0.2
+        self.noDataBar.layer.shadowRadius = 5
+        self.noDataBar.layer.shadowColor = UIColor.black.cgColor
+        self.noDataBar.layer.shadowOffset = CGSize(width: 0, height: 5)
+        
+        noDataCreate.layer.cornerRadius = 25
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if memos.count == 0{
+            noDateView.isHidden = false
+        }else{
+            noDateView.isHidden = true
+        }
         //Realmを読み込む
         let realm = try! Realm()
         memos = realm.objects(Memos.self)
@@ -41,6 +57,11 @@ class TableContainer3: UIViewController,UITableViewDataSource,UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if memos.count == 0{
+            noDateView.isHidden = false
+        }else{
+            noDateView.isHidden = true
+        }
         return memos.count
     }
     
