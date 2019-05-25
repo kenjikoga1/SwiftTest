@@ -42,6 +42,8 @@
 		8CC90DC3227DDA1F00CE1A48 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
 		8CC90DC7227EA8E600CE1A48 /* RoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCell.swift; sourceTree = "<group>"; };
 		8CC90DC8227EA8E600CE1A48 /* RoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundCell.xib; sourceTree = "<group>"; };
+		8CE3523322994CD300B4DC8B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		8CE3523422994CD300B4DC8B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		96762A741FC2C6F59EBE2E2D /* Pods-magicalMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicalMemo.release.xcconfig"; path = "Target Support Files/Pods-magicalMemo/Pods-magicalMemo.release.xcconfig"; sourceTree = "<group>"; };
 		E74B84087B2FB0FAAB59F245 /* Pods-magicalMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicalMemo.debug.xcconfig"; path = "Target Support Files/Pods-magicalMemo/Pods-magicalMemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 8C5B66ED227BBF66004FF463;
 			productRefGroup = 8C5B66F7227BBF66004FF463 /* Products */;
@@ -262,6 +265,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8C5B66FE227BBF66004FF463 /* Base */,
+				8CE3523322994CD300B4DC8B /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -270,6 +274,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8C5B6703227BBF67004FF463 /* Base */,
+				8CE3523422994CD300B4DC8B /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -343,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

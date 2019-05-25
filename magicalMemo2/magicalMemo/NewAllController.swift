@@ -30,6 +30,7 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
     var cellNumber = 0
     
     var isObserving = false
+    var isFirstText = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,8 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         memoTextView.inputAccessoryView = kbToolBar
         abstTextView.inputAccessoryView = kbToolBar
         figureTextView.inputAccessoryView = kbToolBar
-        
+        titleTextField.inputAccessoryView = kbToolBar
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -205,33 +207,34 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
 //    }
 //*********************** キーボード選択時に画面が上がる ***********************
     
-    
-    var txtActiveView = UITextView()
-    //textViewのアクティブ状況を返す
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        txtActiveView = textView
+        if (textView.tag == 1) {
+            isFirstText = true
+        } else {
+            isFirstText = false
+        }
+        
         return true
     }
-    
     @objc func handleKeyBoardWillShowNotification(notification: NSNotification){
-        let userInfo = notification.userInfo
-    //キーボードのフレーム取得
-        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        if (isFirstText == true) {
+            return
+        }
         
         let myBoundSize: CGSize = UIScreen.main.bounds.size
 //        let zureY = CGRectEdge.maxYEdge(UITextView)
-        
-        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
-        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-        
-        if txtLimit <= 170{
+//
+//        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
+//        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+//
+//        if txtLimit <= 170{
 //            UIView.animate(withDuration: 100, animations: {
 //
 ////                let transform = CGAffineTransform(translationX: 0, y: 300)
 //                self.view.transform = transform},completion:nil)
             
             scrollView.contentOffset.y = myBoundSize.height / 3
-        }
+//        }
         
     }
     

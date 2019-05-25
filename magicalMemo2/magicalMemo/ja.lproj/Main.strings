@@ -1,0 +1,42 @@
+
+/* Class = "UITextField"; placeholder = "Title"; ObjectID = "5E9-xZ-LaS"; */
+"5E9-xZ-LaS.placeholder" = "Title";
+
+/* Class = "UIButton"; normalTitle = "PAST"; ObjectID = "Edt-Ta-dIS"; */
+"Edt-Ta-dIS.normalTitle" = "PAST";
+
+/* Class = "UILabel"; text = "抽象化"; ObjectID = "Nph-6B-RkU"; */
+"Nph-6B-RkU.text" = "抽象化";
+
+/* Class = "UITextField"; placeholder = "Title"; ObjectID = "RMJ-3i-3c6"; */
+"RMJ-3i-3c6.placeholder" = "Title";
+
+/* Class = "UINavigationItem"; title = "Edit Memo"; ObjectID = "bpS-JS-Xrg"; */
+"bpS-JS-Xrg.title" = "Edit Memo";
+
+/* Class = "UILabel"; text = "転用"; ObjectID = "brQ-5z-2k2"; */
+"brQ-5z-2k2.text" = "転用";
+
+/* Class = "UIButton"; normalTitle = "UPDATE"; ObjectID = "caH-K2-OCW"; */
+"caH-K2-OCW.normalTitle" = "UPDATE";
+
+/* Class = "UILabel"; text = "事実"; ObjectID = "dh4-Ts-Oa3"; */
+"dh4-Ts-Oa3.text" = "事実";
+
+/* Class = "UILabel"; text = "事実"; ObjectID = "eYu-Fb-grP"; */
+"eYu-Fb-grP.text" = "事実";
+
+/* Class = "UINavigationItem"; title = "New Memo"; ObjectID = "feS-Mc-djY"; */
+"feS-Mc-djY.title" = "New Memo";
+
+/* Class = "UILabel"; text = "time"; ObjectID = "jRy-y0-9Jq"; */
+"jRy-y0-9Jq.text" = "time";
+
+/* Class = "UIButton"; normalTitle = "MAKE"; ObjectID = "m1T-uF-XYo"; */
+"m1T-uF-XYo.normalTitle" = "MAKE";
+
+/* Class = "UILabel"; text = "転用"; ObjectID = "mcg-1g-PHc"; */
+"mcg-1g-PHc.text" = "転用";
+
+/* Class = "UILabel"; text = "抽象化"; ObjectID = "nNY-Bz-JZb"; */
+"nNY-Bz-JZb.text" = "抽象化";

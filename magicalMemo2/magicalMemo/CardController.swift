@@ -101,6 +101,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         memoTextView.inputAccessoryView = kbToolBar
         abstTextView.inputAccessoryView = kbToolBar
         figureTextView.inputAccessoryView = kbToolBar
+        titleTextField.inputAccessoryView = kbToolBar
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -310,10 +311,8 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         }
     }
     
-    var txtActiveView = UITextView()
     //textViewのアクティブ状況を返す
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        txtActiveView = textView
         
         // キーボードの表示時画面を上にあげたい。
         // ただし事実TextViewの場合はあげると入力項目が隠れるのであげない
@@ -334,22 +333,22 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         if (isFirstText == true) {
             return
         }
-        
-        let userInfo = notification.userInfo
-        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//
+//        let userInfo = notification.userInfo
+//        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let myBoundSize: CGSize = UIScreen.main.bounds.size
+//
+//        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
+//        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+//
         
-        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height
-        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-        
-        
-        if txtLimit <= 170{
+//        if txtLimit <= 170{
             UIView.animate(withDuration: 100, animations: {
             let transform = CGAffineTransform(translationX: 0, y: -(myBoundSize.height / 3))
             self.view.transform = transform},completion:nil)
             
 //            scrollView.contentOffset.y = myBoundSize.height / 3
-        }
+//        }
         
     }
     
