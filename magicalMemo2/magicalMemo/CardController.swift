@@ -123,16 +123,6 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     
 
     
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidDisappear(animated)
-//
-//        let notificationCenter = NotificationCenter.default
-//        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-//        notificationCenter.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-    
-
-    
     func reset() {
 //        memoCard.center = self.centerOfCard
         let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height
