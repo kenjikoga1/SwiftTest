@@ -12,7 +12,6 @@ import RealmSwift
 class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
 
     
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var memoCard: UIView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
@@ -125,7 +124,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     
     func reset() {
 //        memoCard.center = self.centerOfCard
-        let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height
+//        let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height
 
         memoCard.center = CGPoint(x: view.frame.width / 2, y: (view.frame.height / 2) - 20)
         memoCard.transform = .identity
@@ -329,7 +328,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     }
     
     @objc func handleKeyboardWillHideNotification(_ notification: Notification?) {
-        let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
+//        let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
                 UIView.animate(withDuration: 100, animations:{
                     self.view.transform = CGAffineTransform.identity},completion:nil)
     }

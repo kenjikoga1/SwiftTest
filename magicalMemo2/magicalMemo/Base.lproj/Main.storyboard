@@ -400,7 +400,6 @@
                         <outlet property="memoPlace" destination="eYu-Fb-grP" id="Ma3-TO-a6N"/>
                         <outlet property="memoTextView" destination="hQE-r5-YYb" id="Zer-yn-FGm"/>
                         <outlet property="saveButton" destination="jPp-tN-HT2" id="ug1-yB-fAe"/>
-                        <outlet property="scrollView" destination="Nq1-TD-Ki0" id="zoq-Ng-meO"/>
                         <outlet property="titleTextField" destination="RMJ-3i-3c6" id="pCl-Kg-QzU"/>
                     </connections>
                 </viewController>
