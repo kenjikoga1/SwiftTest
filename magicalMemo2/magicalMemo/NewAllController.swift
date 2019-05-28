@@ -31,6 +31,7 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
     
     var isObserving = false
     var isFirstText = false
+    var isTextField = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -189,6 +190,13 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.tag == 4{
+            isTextField = true
+        }else{
+            isTextField = false
+        }
+    }
 
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
@@ -203,12 +211,17 @@ class NewAllController: UIViewController,UITextViewDelegate, UITextFieldDelegate
         if (isFirstText == true) {
             return
         }
+        if (isTextField == true){
+            return
+        }
         let myBoundSize: CGSize = UIScreen.main.bounds.size
         scrollView.contentOffset.y = myBoundSize.height / 3
     }
     
     @objc func handleKeyboardWillHideNotification(notification: NSNotification) {
         scrollView.contentOffset.y = 0
+        isFirstText = false
+        isTextField = false
     }
     
 }

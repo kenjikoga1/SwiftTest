@@ -31,6 +31,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     
     // キーボード表示時の画面スクロールフラグ
     var isFirstText = false
+    var isTextField = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,15 +118,11 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
             #selector(self.handleKeyboardWillHideNotification),
                                        name: UIResponder.keyboardWillHideNotification,
                                        object: nil)
-        
     }
     
 
     
     func reset() {
-//        memoCard.center = self.centerOfCard
-//        let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height
-
         memoCard.center = CGPoint(x: view.frame.width / 2, y: (view.frame.height / 2) - 20)
         memoCard.transform = .identity
     }
@@ -180,15 +177,7 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         
 //        let memos = realm.objects(Memos.self)
         let topMemo = realm.object(ofType: Memos.self, forPrimaryKey: cellNumber)
-        
-        
-        
-//        //TitleをRealmに保存
-//        let memo = Memos()
-//        memos = realm.objects(Memos.self)
-//        let topMemo = memos[cellNumber] as Memos
-        
-        //memoTextをRealmに保存
+
         try! realm.write {
             
             //現在の日付を取得
@@ -259,6 +248,8 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         setPlaceHolder()
     }
     
+
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
         return true
@@ -300,6 +291,14 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         }
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.tag == 4{
+            isTextField = true
+        }else{
+            isTextField = false
+        }
+    }
+    
     //textViewのアクティブ状況を返す
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         
@@ -320,6 +319,9 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         if (isFirstText == true) {
             return
         }
+        if (isTextField == true){
+            return
+        }
 
         let myBoundSize: CGSize = UIScreen.main.bounds.size
             UIView.animate(withDuration: 100, animations: {
@@ -331,6 +333,8 @@ class CardController: UIViewController,UITextViewDelegate,UITextFieldDelegate {
 //        let duration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
                 UIView.animate(withDuration: 100, animations:{
                     self.view.transform = CGAffineTransform.identity},completion:nil)
+        isTextField = false
+        isFirstText = false
     }
     
     @objc func commitButtonTapped() {
