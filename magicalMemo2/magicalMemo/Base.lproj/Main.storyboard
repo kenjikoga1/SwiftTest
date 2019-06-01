@@ -149,7 +149,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="V3B-Zx-kuG"/>
                     <connections>
-                        <outlet property="adBannerView" destination="Phu-MD-Hrj" id="KZT-0B-j43"/>
+                        <outlet property="addBanerView" destination="Phu-MD-Hrj" id="Y6W-hh-aSB"/>
                         <outlet property="container1" destination="dTk-Jr-kvI" id="0UX-Gn-a9I"/>
                         <outlet property="container2" destination="4Py-ce-7a1" id="CEA-lY-RIl"/>
                         <outlet property="container3" destination="dNu-Zd-AQq" id="sc7-fC-vK5"/>
@@ -417,7 +417,7 @@
             <objects>
                 <viewController id="Xky-uT-d5U" customClass="NewAllController" customModule="magicalMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s22-P1-uZj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="503"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSd-UG-dV4">
@@ -1010,7 +1010,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iE7-yx-NEC"/>
+        <segue reference="EwH-3o-hKe"/>
         <segue reference="xh0-Af-2KU"/>
     </inferredMetricsTieBreakers>
 </document>

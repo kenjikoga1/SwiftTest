@@ -25,7 +25,10 @@ class ViewController: UIViewController,GADBannerViewDelegate {
     @IBOutlet weak var updateLabel: UIButton!
     @IBOutlet weak var favoriteLabel: UIButton!
     
-    @IBOutlet var adBannerView: GADBannerView!
+ 
+    @IBOutlet weak var addBanerView: UIView!
+    
+    var bannerView: GADBannerView!
     
     var memos: Results<Memos>!
     var cellNumber = 0
@@ -48,64 +51,22 @@ class ViewController: UIViewController,GADBannerViewDelegate {
         container2.isHidden = true
         container3.isHidden = true
         
-        adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        adBannerView.adUnitID = "ca-app-pub-1331496561960773/3449977736"
-        adBannerView.rootViewController = self
-        adBannerView.delegate = self
-        adBannerView.load(GADRequest())
+        bannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
+//        bannerView.adUnitID = "ca-app-pub-1331496561960773/3449977736"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        
+        let request:GADRequest = GADRequest()
+            request.testDevices = [kGADSimulatorID] //iOSシミュレータ用
+
+        //広告を読み込んで表示
+        bannerView.load(request)
+        
+        addBanerView.addSubview(bannerView)
         
     }
-    
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        if #available(iOS 11.0, *) {
-            // In iOS 11, we need to constrain the view to the safe area.
-            positionBannerViewFullWidthAtBottomOfSafeArea(bannerView)
-        }
-        else {
-            // In lower iOS versions, safe area is not available so we use
-            // bottom layout guide and view edges.
-            positionBannerViewFullWidthAtBottomOfView(bannerView)
-        }
-    }
-    
-    // MARK: - view positioning
-    @available (iOS 11, *)
-    func positionBannerViewFullWidthAtBottomOfSafeArea(_ bannerView: UIView) {
-        // Position the banner. Stick it to the bottom of the Safe Area.
-        // Make it constrained to the edges of the safe area.
-        let guide = view.safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            guide.leftAnchor.constraint(equalTo: bannerView.leftAnchor),
-            guide.rightAnchor.constraint(equalTo: bannerView.rightAnchor),
-            guide.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor)
-            ])
-    }
-    
-    func positionBannerViewFullWidthAtBottomOfView(_ bannerView: UIView) {
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .leading,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .leading,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .trailing,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .trailing,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .bottom,
-                                              relatedBy: .equal,
-                                              toItem: bottomLayoutGuide,
-                                              attribute: .top,
-                                              multiplier: 1,
-                                              constant: 0))
-    }
+
 //    // 最下部に表示
 //    override func viewDidLayoutSubviews(){
 //        //  広告インスタンス作成

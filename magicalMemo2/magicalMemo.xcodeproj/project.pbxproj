@@ -13,7 +13,6 @@
 		8C5B66FF227BBF66004FF463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B66FD227BBF66004FF463 /* Main.storyboard */; };
 		8C5B6701227BBF67004FF463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B6700227BBF67004FF463 /* Assets.xcassets */; };
 		8C5B6704227BBF67004FF463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5B6702227BBF67004FF463 /* LaunchScreen.storyboard */; };
-		8C74D084228D9D33002E5B7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C74D083228D9D33002E5B7D /* GoogleService-Info.plist */; };
 		8CC22200228316B400DEFA14 /* TableContainer1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC221FF228316B400DEFA14 /* TableContainer1.swift */; };
 		8CC22202228316CA00DEFA14 /* TableContainer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC22201228316CA00DEFA14 /* TableContainer2.swift */; };
 		8CC22204228318FC00DEFA14 /* TableContainer3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC22203228318FC00DEFA14 /* TableContainer3.swift */; };
@@ -22,6 +21,7 @@
 		8CC90DC4227DDA1F00CE1A48 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC90DC3227DDA1F00CE1A48 /* CardController.swift */; };
 		8CC90DC9227EA8E600CE1A48 /* RoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC90DC7227EA8E600CE1A48 /* RoundCell.swift */; };
 		8CC90DCA227EA8E600CE1A48 /* RoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC90DC8227EA8E600CE1A48 /* RoundCell.xib */; };
+		8CF9E23D22A1F88E003FB412 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CF9E23C22A1F88E003FB412 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,6 @@
 		8C5B6700227BBF67004FF463 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C5B6703227BBF67004FF463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C5B6705227BBF67004FF463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C74D083228D9D33002E5B7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Documents/appleDevelop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8CC221FF228316B400DEFA14 /* TableContainer1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContainer1.swift; sourceTree = "<group>"; };
 		8CC22201228316CA00DEFA14 /* TableContainer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContainer2.swift; sourceTree = "<group>"; };
 		8CC22203228318FC00DEFA14 /* TableContainer3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContainer3.swift; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		8CC90DC8227EA8E600CE1A48 /* RoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundCell.xib; sourceTree = "<group>"; };
 		8CE3523322994CD300B4DC8B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		8CE3523422994CD300B4DC8B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8CF9E23C22A1F88E003FB412 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96762A741FC2C6F59EBE2E2D /* Pods-magicalMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicalMemo.release.xcconfig"; path = "Target Support Files/Pods-magicalMemo/Pods-magicalMemo.release.xcconfig"; sourceTree = "<group>"; };
 		E74B84087B2FB0FAAB59F245 /* Pods-magicalMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magicalMemo.debug.xcconfig"; path = "Target Support Files/Pods-magicalMemo/Pods-magicalMemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,7 +104,7 @@
 				8C5B6700227BBF67004FF463 /* Assets.xcassets */,
 				8C5B6702227BBF67004FF463 /* LaunchScreen.storyboard */,
 				8C5B6705227BBF67004FF463 /* Info.plist */,
-				8C74D083228D9D33002E5B7D /* GoogleService-Info.plist */,
+				8CF9E23C22A1F88E003FB412 /* GoogleService-Info.plist */,
 			);
 			path = magicalMemo;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 			files = (
 				8C5B6704227BBF67004FF463 /* LaunchScreen.storyboard in Resources */,
 				8C5B6701227BBF67004FF463 /* Assets.xcassets in Resources */,
-				8C74D084228D9D33002E5B7D /* GoogleService-Info.plist in Resources */,
+				8CF9E23D22A1F88E003FB412 /* GoogleService-Info.plist in Resources */,
 				8CC90DCA227EA8E600CE1A48 /* RoundCell.xib in Resources */,
 				8C5B66FF227BBF66004FF463 /* Main.storyboard in Resources */,
 			);
